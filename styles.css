@@ -772,7 +772,7 @@ div[id] {
     position: absolute;
     left: 55%;
     transform: translateX(-50%);
-    top: -700px;
+    top: -650px;
     z-index: 5;
     display: flex;
     justify-content: center;
