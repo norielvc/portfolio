@@ -832,7 +832,10 @@ function updateLoveCarousel() {
         }
     });
     
+    titleEl.classList.remove('animate');
+    void titleEl.offsetWidth; // trigger reflow
     titleEl.textContent = `I LOVE ${loveTitles[currentLoveIdx]}`;
+    titleEl.classList.add('animate');
 }
 
 function prevLoveItem() {

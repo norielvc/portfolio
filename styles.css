@@ -3924,7 +3924,7 @@ a.contact-info-item:hover .contact-info-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0s, opacity 0.7s ease, color 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, color 0.4s ease;
     opacity: 0;
     transform: translateX(0) scale(0.8);
     cursor: pointer;
@@ -4209,6 +4209,21 @@ a.contact-info-item:hover .contact-info-arrow {
     color: #ffffff;
     text-transform: uppercase;
     transition: all 0.4s ease;
+}
+
+@keyframes loveFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.love-text-display h2.animate {
+    animation: loveFadeInUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .love-nav-btns {
