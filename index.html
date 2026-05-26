@@ -11,6 +11,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&amp;family=Indie+Flower&amp;display=swap" rel="stylesheet"/>
 </head>
 <body>
+
+<!-- ── PAGE LOADER ─────────────────────────────────────────── -->
+<div id="page-loader">
+  <div class="loader-grid-bg"></div>
+  <div class="loader-scan-line"></div>
+  <div class="loader-inner">
+    <div class="loader-top-label">// INITIALIZING SYSTEM</div>
+    <div class="loader-name" data-text="Noriel Database">Noriel Database</div>
+
+    <div class="loader-bar-wrap">
+      <div class="loader-bar-track">
+        <div class="loader-bar"></div>
+        <div class="loader-bar-glow"></div>
+      </div>
+      <div class="loader-percent">0%</div>
+    </div>
+
+    <div class="loader-boot-lines">
+      <div class="boot-line" id="bl1">&gt; Loading modules...</div>
+      <div class="boot-line" id="bl2">&gt; Connecting to database...</div>
+      <div class="boot-line" id="bl3">&gt; System ready.</div>
+    </div>
+  </div>
+</div>
+<!-- ── END LOADER ──────────────────────────────────────────── -->
 <!-- Hero Section -->
 <section class="hero" id="home">
 <!-- Cyber grid background -->
@@ -158,13 +183,13 @@
 <div class="container">
 <!-- DEFAULT VIEW: Illustration Card + Brain -->
 <div class="about-view active-view" id="about-default-view">
-<div class="section-header">
+<div class="section-header" data-reveal="fade-up">
 <h2>About Me</h2>
 <p>Get to know more about my journey</p>
 </div>
 <div class="about-hero-layout">
 <!-- Right: Animated Brain Sketch -->
-<div class="about-brain-wrapper">
+<div class="about-brain-wrapper" data-reveal="scale-up" data-delay="200">
 <div class="brain-sketch-label">AI CORE // ONLINE</div>
 <svg class="brain-svg" fill="none" viewbox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
 <!-- Outer Tech Ring -->
@@ -262,7 +287,7 @@
 </div>
 <!-- Back Button -->
 <div style="text-align:center; margin-top: 40px;">
-<a class="explore-sketch-btn" href="javascript:void(0);" onclick="toggleExplore(event)">
+<a class="explore-sketch-btn" href="javascript:void(0);" onclick="goBackToDefault(event)">
 <svg class="sketch-btn-svg" fill="none" viewbox="0 0 200 54" xmlns="http://www.w3.org/2000/svg">
 <rect class="sketch-btn-rect" height="50" rx="27" width="196" x="2" y="2"></rect>
 </svg>
@@ -409,14 +434,14 @@
 <!-- Experience Section -->
 <section class="resume reveal" id="resume">
 <div class="container">
-<div class="section-header">
+<div class="section-header" data-reveal="fade-up">
 <h2>Experience</h2>
 <p>My professional journey</p>
 </div>
 <div class="resume-content">
 <div class="resume-column">
-<h3><i class="fas fa-terminal"></i> Operation Logs</h3>
-<div class="resume-item">
+<h3 data-reveal="fade-right"><i class="fas fa-terminal"></i> Operation Logs</h3>
+<div class="resume-item" data-reveal="fade-up" data-delay="100">
 <div class="resume-badge">System ID: 01 // Active</div>
 <h4>Software Engineer &amp; Data Analyst</h4>
 <span class="resume-date">2025 - Present</span>
@@ -427,7 +452,7 @@
 <li>Developed custom software solutions to streamline daily operations and enhance technology workflows.</li>
 </ul>
 </div>
-<div class="resume-item">
+<div class="resume-item" data-reveal="fade-up" data-delay="200">
 <div class="resume-badge">System ID: 02 // Deployed</div>
 <h4>Senior System Engineer</h4>
 <span class="resume-date">2020 - 2024</span>
@@ -438,7 +463,7 @@
 <li>Managed and secured cloud-based architectures, implementing robust security protocols and monitoring systems.</li>
 </ul>
 </div>
-<div class="resume-item">
+<div class="resume-item" data-reveal="fade-up" data-delay="300">
 <div class="resume-badge">System ID: 03 // Completed</div>
 <h4>Lead Security System Engineer</h4>
 <span class="resume-date">2014 - 2019</span>
@@ -449,7 +474,7 @@
 <li>Executed complex technical integrations that modernized legacy systems and improved overall operational security.</li>
 </ul>
 </div>
-<div class="resume-item">
+<div class="resume-item" data-reveal="fade-up" data-delay="400">
 <div class="resume-badge">System ID: 04 // Auxiliary</div>
 <h4>Freelance Graphic Designer &amp; Brand Specialist</h4>
 <span class="resume-date">2013 - Present</span>
@@ -461,10 +486,10 @@
 </div>
 </div>
 <div class="resume-column">
-<h3><i class="fas fa-microchip"></i> System Capabilities</h3>
+<h3 data-reveal="fade-left"><i class="fas fa-microchip"></i> System Capabilities</h3>
 <div class="tech-stack-grid">
 <!-- Module: Frontend -->
-<div class="tech-module">
+<div class="tech-module" data-reveal="fade-up" data-delay="100">
 <h4 class="tech-category-title">[ MODULE: FRONTEND ]</h4>
 <div class="tech-badges">
 <span class="tech-badge">React</span>
@@ -476,7 +501,7 @@
 </div>
 </div>
 <!-- Module: Backend & Data -->
-<div class="tech-module">
+<div class="tech-module" data-reveal="fade-up" data-delay="200">
 <h4 class="tech-category-title">[ MODULE: BACKEND &amp; DATA ]</h4>
 <div class="tech-badges">
 <span class="tech-badge">Node.js</span>
@@ -487,7 +512,7 @@
 </div>
 </div>
 <!-- Module: Infrastructure & Ops -->
-<div class="tech-module">
+<div class="tech-module" data-reveal="fade-up" data-delay="300">
 <h4 class="tech-category-title">[ MODULE: INFRA &amp; SEC ]</h4>
 <div class="tech-badges">
 <span class="tech-badge">Cloud Infrastructure</span>
@@ -498,7 +523,7 @@
 </div>
 </div>
 <!-- Module: Aux -->
-<div class="tech-module">
+<div class="tech-module" data-reveal="fade-up" data-delay="400">
 <h4 class="tech-category-title">[ MODULE: AUXILIARY ]</h4>
 <div class="tech-badges">
 <span class="tech-badge">Team Leadership</span>
@@ -507,7 +532,7 @@
 </div>
 </div>
 <!-- Module: Graphic Design -->
-<div class="tech-module">
+<div class="tech-module" data-reveal="fade-up" data-delay="500">
 <h4 class="tech-category-title">[ MODULE: GRAPHIC DESIGN ]</h4>
 <div class="tech-badges">
 <span class="tech-badge">Adobe Photoshop</span>
@@ -921,7 +946,7 @@
 <div class="projects-cyber-grid"></div>
 <div class="projects-scan-line"></div>
 <div class="container">
-<div class="section-header">
+<div class="section-header" data-reveal="fade-up">
 <div class="projects-hud-label">// SYSTEM LOG — DEPLOYED PROJECTS</div>
 <h2>Recent Work</h2>
 <p>&gt; SCANNING <span class="projects-count">11</span> ACTIVE DEPLOYMENTS<span class="blink-cursor">_</span></p>
@@ -1213,7 +1238,7 @@
 <div class="container">
 <div class="contact-content" style="display: grid; gap: 40px; margin-top: 40px;">
 <!-- Left: Info Panel -->
-<div class="contact-info-panel">
+<div class="contact-info-panel" data-reveal="fade-right">
 <h2 class="contact-title">Let's Build Something Together</h2>
 <p class="contact-desc">Whether it's a massive infrastructure project or an innovative web application, I'm ready to bring your vision to life.</p>
 <div class="contact-status-badge">
@@ -1249,7 +1274,7 @@ AVAILABLE FOR FREELANCE &amp; CONTRACT
 </div>
 </div>
 <!-- Right: Form Panel -->
-<div class="contact-form-panel">
+<div class="contact-form-panel" data-reveal="fade-left" data-delay="200">
 <form class="contact-form" id="contact-form">
 <div class="contact-form-row">
 <div class="contact-field">

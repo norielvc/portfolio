@@ -1,3 +1,51 @@
+// ── PAGE LOADER ────────────────────────────────────────────────────────────
+(function () {
+    const loader   = document.getElementById('page-loader');
+    const bar      = loader && loader.querySelector('.loader-bar');
+    const glow     = loader && loader.querySelector('.loader-bar-glow');
+    const pct      = loader && loader.querySelector('.loader-percent');
+    const bootLines = loader && loader.querySelectorAll('.boot-line');
+    if (!loader) return;
+
+    document.body.style.overflow = 'hidden';
+
+    let progress = 0;
+    const duration = 2200;
+    const interval = 30;
+    const steps = duration / interval;
+    let tick = 0;
+
+    // Stagger boot lines at ~30%, ~60%, ~90%
+    const lineThresholds = [30, 60, 90];
+    const lineShown = [false, false, false];
+
+    const timer = setInterval(() => {
+        tick++;
+        progress = Math.min(100, Math.round((1 - Math.pow(1 - tick / steps, 2)) * 100));
+
+        if (bar)  bar.style.width  = progress + '%';
+        if (glow) glow.style.width = progress + '%';
+        if (pct)  pct.textContent  = progress + '%';
+
+        // Reveal boot lines at thresholds
+        lineThresholds.forEach((threshold, i) => {
+            if (!lineShown[i] && progress >= threshold && bootLines[i]) {
+                bootLines[i].classList.add('visible');
+                lineShown[i] = true;
+            }
+        });
+
+        if (progress >= 100) {
+            clearInterval(timer);
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 400);
+        }
+    }, interval);
+})();
+// ── END PAGE LOADER ─────────────────────────────────────────────────────────
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -64,6 +112,32 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => {
     revealObserver.observe(el);
 });
+
+// ── SCROLL REVEAL SYSTEM ────────────────────────────────────────────────────
+// Auto-tag work items with staggered fade-up
+document.querySelectorAll('.work-item').forEach((el, i) => {
+    el.setAttribute('data-reveal', 'fade-up');
+    // Cap delay at 500ms so late items don't wait too long
+    const delay = Math.min(i * 80, 500);
+    if (delay > 0) el.setAttribute('data-delay', String(delay));
+});
+
+const scrollRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            scrollRevealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('[data-reveal]').forEach(el => {
+    scrollRevealObserver.observe(el);
+});
+// ── END SCROLL REVEAL SYSTEM ────────────────────────────────────────────────
 
 
 // Skill Bar Observer Options
@@ -779,6 +853,14 @@ function toggleExplore(event) {
     scrollToAbout();
 }
 
+function goBackToDefault(event) {
+    if(event) event.preventDefault();
+    resetAboutViews();
+    const defaultView = document.getElementById('about-default-view');
+    if(defaultView) defaultView.classList.add('active-view');
+    scrollToAbout();
+}
+
 // Love view (carousel / scroller) logic
 let currentLoveIdx = 0;
 const loveTitles = [
@@ -832,10 +914,7 @@ function updateLoveCarousel() {
         }
     });
     
-    titleEl.classList.remove('animate');
-    void titleEl.offsetWidth; // trigger reflow
     titleEl.textContent = `I LOVE ${loveTitles[currentLoveIdx]}`;
-    titleEl.classList.add('animate');
 }
 
 function prevLoveItem() {
