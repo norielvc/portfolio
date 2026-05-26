@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Cyber grid background -->
+        <div class="cyber-grid"></div>
+        <!-- Scan line overlay -->
+        <div class="scan-line"></div>
+
+        <div class="hero-wrapper">
+            <!-- Top: Title text left-aligned -->
+            <div class="hero-text-top">
+                <div class="hud-label">// SYSTEM ONLINE — AI-POWERED DEVELOPER</div>
+                <h1>Hello! I'm <span class="text-black">NORIEL</span></h1>
+                <h2>I am a <span class="typing-text"></span></h2>
+            </div>
+
+            <!-- Floating Image — absolutely positioned, detached from layout -->
+            <div class="hero-image-center">
+                <!-- HUD corner brackets -->
+                <div class="hud-bracket top-left"></div>
+                <div class="hud-bracket top-right"></div>
+                <div class="hud-bracket bottom-left"></div>
+                <div class="hud-bracket bottom-right"></div>
+                <!-- Scan beam -->
+                <div class="hud-scan-beam"></div>
+                <div id="robot-gaze-wrapper">
+                    <img src="IMAGES/noriel-robot.png" alt="Noriel - Developer" id="profile-img" class="select-none">
+                </div>
+                <!-- HUD data tags -->
+                <div class="hud-tag hud-tag-1">AI_CORE: ACTIVE</div>
+                <div class="hud-tag hud-tag-2">SYS: ONLINE</div>
+
+                <!-- Cute Floating Cyborg — positioned outside the main image -->
+                <div class="cute-cyborg-container select-none">
+                    <div class="cute-cyborg-robot">
+                        <svg viewBox="0 0 200 240" class="cute-cyborg-svg">
+                            <!-- Antenna -->
+                            <path d="M 130 50 L 140 25" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" />
+                            <circle cx="140" cy="25" r="7" fill="#c084fc" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Left Ear (Sliver) -->
+                            <rect x="33" y="70" width="10" height="30" rx="5" fill="#a855f7" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Right Ear (Headphone cup) -->
+                            <circle cx="167" cy="85" r="16" fill="#a855f7" stroke="#1a1a1a" stroke-width="3" />
+                            <circle cx="167" cy="85" r="9" fill="#581c87" />
+                            <!-- Head Body -->
+                            <rect x="40" y="40" width="120" height="90" rx="25" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" />
+                            <!-- Black Visor Screen -->
+                            <rect x="48" y="55" width="104" height="60" rx="15" fill="#0f172a" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Eyes Group -->
+                            <g class="cyborg-eyes-group">
+                                <g class="cyborg-eye left-eye">
+                                    <circle cx="76" cy="85" r="14" fill="#22d3ee" opacity="0.25" />
+                                    <circle class="cyborg-eye-pupil cyan-pupil" cx="76" cy="85" r="9" fill="#22d3ee" />
+                                    <circle class="cyborg-eye-reflection" cx="73" cy="82" r="2.5" fill="#ffffff" />
+                                </g>
+                                <g class="cyborg-eye right-eye">
+                                    <circle cx="124" cy="85" r="14" fill="#f43f5e" opacity="0.25" />
+                                    <circle class="cyborg-eye-pupil pink-pupil" cx="124" cy="85" r="9" fill="#f43f5e" />
+                                    <circle class="cyborg-eye-reflection" cx="121" cy="82" r="2.5" fill="#ffffff" />
+                                </g>
+                            </g>
+                            <!-- Neck -->
+                            <rect x="92" y="130" width="16" height="12" rx="4" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Torso -->
+                            <path d="M 75 142 C 75 142, 65 175, 75 185 C 80 190, 120 190, 125 185 C 135 175, 125 142, 125 142 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" />
+                            <!-- Lower Body -->
+                            <path d="M 72 172 C 75 188, 80 200, 100 200 C 120 200, 125 188, 128 172 C 128 172, 115 178, 100 178 C 85 178, 72 172, 72 172 Z" fill="#a855f7" stroke="#1a1a1a" stroke-width="4" />
+                            <!-- Left Arm -->
+                            <circle cx="68" cy="153" r="5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="68" y1="153" x2="58" y2="173" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <circle cx="58" cy="173" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="58" y1="173" x2="58" y2="191" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <path d="M 54 191 Q 58 197 62 191" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" />
+                            <!-- Right Arm -->
+                            <circle cx="132" cy="153" r="5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="132" y1="153" x2="142" y2="173" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <circle cx="142" cy="173" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="142" y1="173" x2="142" y2="191" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <path d="M 138 191 Q 142 197 146 191" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" />
+                            <!-- Left Leg -->
+                            <circle cx="88" cy="198" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="2.5" />
+                            <line x1="88" y1="198" x2="88" y2="213" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <ellipse cx="88" cy="217" rx="7" ry="4.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Right Leg -->
+                            <circle cx="112" cy="198" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="2.5" />
+                            <line x1="112" y1="198" x2="112" y2="213" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <ellipse cx="112" cy="217" rx="7" ry="4.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <div class="cute-cyborg-shadow"></div>
+                </div>
+            </div>
+
+            <!-- 12 Years — isolated, absolutely positioned top right -->
+
+
+            <!-- Main: 2 columns — testimonials left, stats right -->
+            <div class="hero-main">
+                <!-- Left: testimonial grid -->
+                <div class="testimonial-left">
+                    <div class="testimonial-grid">
+                        <div class="quote-block">
+                            <p>"I am your AI expert — tell me what you need and I'll build it. Faster delivery, smarter systems, and results that actually move your business forward."</p>
+                        </div>
+                        <div class="quote-block">
+                            <p>"I eliminated paper entirely — every internal request, approval, and workflow is now fully digital, automated, and trackable in real time."</p>
+                        </div>
+                        <div class="quote-block">
+                            <p>"I built a live TB patient tracking system and an HR attendance logger — giving organizations real-time visibility they never had before."</p>
+                        </div>
+                        <div class="quote-block">
+                            <p>"I built a full company intranet — centralizing internal tools, announcements, and workflows into one secure, organization-wide platform."</p>
+                        </div>
+                        <div class="quote-block">
+                            <p>"I launched a Barangay SaaS platform — residents request certificates online, officials process them digitally, billed monthly. Government, modernized."</p>
+                        </div>
+                        <div class="quote-block">
+                            <p>"I design and build interactive, professional websites — crafted to impress, convert, and represent your brand at its best."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: tagline, tech stack, CTA -->
+                <div class="experience-right">
+                    <div class="years-isolated">
+                        <div class="years">12 Years</div>
+                        <div class="exp-label">Professional Journey</div>
+                        <div class="stat-detail">IT · Engineering · AI Development</div>
+                    </div>
+                    <div class="hero-tagline">
+                        <p>I don't just write code —<br>I build systems that <strong>think, automate,</strong><br>and <strong>scale with AI.</strong></p>
+                    </div>
+
+                    <a href="#contact" class="hero-cta-btn">Let's Build Something →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about reveal">
+        <div class="container">
+
+
+            <!-- DEFAULT VIEW: Illustration Card + Brain -->
+            <div id="about-default-view" class="about-view active-view">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <p>Get to know more about my journey</p>
+                </div>
+
+                <div class="about-hero-layout">
+
+                    <!-- Right: Animated Brain Sketch -->
+                    <div class="about-brain-wrapper">
+                        <div class="brain-sketch-label">AI CORE // ONLINE</div>
+                        <svg class="brain-svg" viewBox="0 0 400 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer Tech Ring -->
+                            <path class="brain-path" d="M200 40 A150 150 0 1 1 199.9 40 Z"/>
+                            
+                            <!-- Inner Geometric Core (Octagon) -->
+                            <path class="brain-path brain-path-2" d="M200 90 L277 113 L310 190 L277 267 L200 290 L123 267 L90 190 L123 113 Z"/>
+                            
+                            <!-- Center Neural Node -->
+                            <path class="brain-path brain-path-3" d="M150 190 C150 162 172 140 200 140 C228 140 250 162 250 190 C250 218 228 240 200 240 C172 240 150 218 150 190 Z"/>
+                            
+                            <!-- Outer Data Connections -->
+                            <path class="brain-path brain-path-4" d="M200 40 L200 90 M200 290 L200 340"/>
+                            <path class="brain-path brain-path-5" d="M94 84 L123 113 M306 296 L277 267"/>
+                            <path class="brain-path brain-path-6" d="M50 190 L90 190 M310 190 L350 190"/>
+                            <path class="brain-path brain-path-7" d="M94 296 L123 267 M306 84 L277 113"/>
+                            
+                            <!-- Internal Connections -->
+                            <path class="brain-path brain-path-8" d="M200 140 L200 90 M200 240 L200 290"/>
+                            <path class="brain-path brain-path-9" d="M165 155 L123 113 M235 225 L277 267"/>
+                            
+                            <!-- Circuit Tracks -->
+                            <path class="brain-path brain-path-10" d="M100 60 L140 100 M300 320 L260 280"/>
+                            <path class="brain-path brain-path-11" d="M300 60 L260 100 M100 320 L140 280"/>
+                            
+                            <!-- Core Processing Nodes -->
+                            <circle class="brain-dot" cx="200" cy="190" r="12" fill="#ffffff" />
+                            <circle class="brain-dot brain-dot-2" cx="200" cy="90" r="6" />
+                            <circle class="brain-dot brain-dot-3" cx="200" cy="290" r="6" />
+                            <circle class="brain-dot brain-dot-4" cx="90" cy="190" r="6" />
+                            <circle class="brain-dot brain-dot-5" cx="310" cy="190" r="6" />
+                            
+                            <!-- Micro Blips -->
+                            <circle class="brain-dot" cx="123" cy="113" r="3" fill="#ffffff" />
+                            <circle class="brain-dot" cx="277" cy="113" r="3" fill="#ffffff" />
+                            <circle class="brain-dot" cx="123" cy="267" r="3" fill="#ffffff" />
+                            <circle class="brain-dot" cx="277" cy="267" r="3" fill="#ffffff" />
+                        </svg>
+                        <div class="brain-pulse-ring"></div>
+                        <!-- Sketch-style Explore Me Button -->
+                        <a href="javascript:void(0);" class="explore-sketch-btn" id="explore-me-btn" onclick="toggleExplore(event)">
+                            <svg class="sketch-btn-svg" viewBox="0 0 200 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect class="sketch-btn-rect" x="2" y="2" width="196" height="50" rx="27"/>
+                            </svg>
+                            <span class="explore-sketch-text">Explore Me 
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="explore-arrow-icon">
+                                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPLORE VIEW: What Makes Me, Me -->
+            <div id="about-explore-view" class="about-view">
+                <div class="explore-details-header">
+                    <h2 class="explore-details-title">What Makes Me, <em>Me</em></h2>
+                    <p class="explore-details-sub">Three things that define how I build and who I am</p>
+                </div>
+                <div class="explore-cards-grid">
+                    <!-- Card 1: Love -->
+                    <div class="explore-card" onclick="openLoveView()">
+                        <div class="explore-card-icon">
+                            <svg class="explore-icon-svg" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="icon-path heart-path" d="M60 95 C60 95 15 65 15 38 C15 22 27 12 40 12 C50 12 58 18 60 24 C62 18 70 12 80 12 C93 12 105 22 105 38 C105 65 60 95 60 95Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="explore-card-title">Love</h3>
+                        <p class="explore-card-desc">I pour genuine passion into every project. Code is not just my job — it's my craft.</p>
+                        <div class="explore-card-line"></div>
+                    </div>
+                    <!-- Card 2: Core -->
+                    <div class="explore-card" onclick="openCoreView()">
+                        <div class="explore-card-icon">
+                            <svg class="explore-icon-svg" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="icon-path brain-mini-path" d="M60 18 C48 10, 34 14, 28 28 C20 44, 24 60, 30 68 C22 72, 18 82, 22 92 C26 100, 38 105, 50 100 C54 108, 62 108, 60 100"/>
+                                <path class="icon-path brain-mini-path-2" d="M60 18 C72 10, 86 14, 92 28 C100 44, 96 60, 90 68 C98 72, 102 82, 98 92 C94 100, 82 105, 70 100 C66 108, 58 108, 60 100"/>
+                                <path class="icon-path brain-mini-path-3" d="M60 18 C59 45, 61 70, 60 100"/>
+                                <path class="icon-path brain-mini-path-4" d="M34 40 C42 35, 52 38, 56 48"/>
+                                <path class="icon-path brain-mini-path-5" d="M86 40 C78 35, 68 38, 64 48"/>
+                                <circle class="icon-dot" cx="60" cy="58" r="4"/>
+                            </svg>
+                        </div>
+                        <h3 class="explore-card-title">Core</h3>
+                        <p class="explore-card-desc">Logic, architecture and problem-solving are at the center of everything I build.</p>
+                        <div class="explore-card-line"></div>
+                    </div>
+                    <!-- Card 3: Work -->
+                    <div class="explore-card" onclick="openWorkView()">
+                        <div class="explore-card-icon">
+                            <svg class="explore-icon-svg" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="icon-path work-path" d="M20 42 C20 38, 23 35, 27 35 L93 35 C97 35, 100 38, 100 42 L100 88 C100 92, 97 95, 93 95 L27 95 C23 95, 20 92, 20 88 Z"/>
+                                <path class="icon-path work-path-2" d="M44 35 L44 26 C44 22, 47 19, 51 19 L69 19 C73 19, 76 22, 76 26 L76 35"/>
+                                <path class="icon-path work-path-3" d="M20 60 L100 60"/>
+                                <path class="icon-path work-path-4" d="M52 55 L68 55 L68 65 L52 65 Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="explore-card-title">Work</h3>
+                        <p class="explore-card-desc">Disciplined, deadline-driven and detail-oriented across every project I take on.</p>
+                        <div class="explore-card-line"></div>
+                    </div>
+                </div>
+                <!-- Back Button -->
+                <div style="text-align:center; margin-top: 40px;">
+                    <a href="javascript:void(0);" class="explore-sketch-btn" onclick="toggleExplore(event)">
+                        <svg class="sketch-btn-svg" viewBox="0 0 200 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="sketch-btn-rect" x="2" y="2" width="196" height="50" rx="27"/>
+                        </svg>
+                        <span class="explore-sketch-text">← Go Back</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- LOVE VIEW: I Love Scroller -->
+            <div id="about-love-view" class="about-view">
+                <div class="love-view-container">
+                    <button class="love-close-btn" onclick="closeLoveView()">&times;</button>
+                    
+                    <div class="love-glass-track">
+                        <!-- Icons Carousel -->
+                        <div class="love-icons-carousel">
+                            <div class="love-icons-track" id="love-track">
+                                <div class="love-item-icon" data-index="0"><div class="love-icon-content"><i class="fas fa-code"></i></div></div>
+                                <div class="love-item-icon" data-index="1"><div class="love-icon-content"><i class="fas fa-paint-brush"></i></div></div>
+                                <div class="love-item-icon" data-index="2"><div class="love-icon-content"><i class="fas fa-puzzle-piece"></i></div></div>
+                                <div class="love-item-icon" data-index="3"><div class="love-icon-content"><i class="fas fa-robot"></i></div></div>
+                                <div class="love-item-icon" data-index="4"><div class="love-icon-content"><i class="fas fa-bolt"></i></div></div>
+                                <div class="love-item-icon" data-index="5"><div class="love-icon-content"><i class="fas fa-share-alt"></i></div></div>
+                                <div class="love-item-icon" data-index="6"><div class="love-icon-content"><i class="fas fa-layer-group"></i></div></div>
+                                <div class="love-item-icon" data-index="7"><div class="love-icon-content"><i class="fas fa-square"></i></div></div>
+                                <div class="love-item-icon" data-index="8"><div class="love-icon-content"><i class="fas fa-brain"></i></div></div>
+                                <div class="love-item-icon" data-index="9"><div class="love-icon-content"><img src="IMAGES/GOT.png" class="love-img-icon" alt="Game of Thrones"></div></div>
+                                <div class="love-item-icon" data-index="10"><div class="love-icon-content"><i class="fas fa-users"></i></div></div>
+                                <div class="love-item-icon" data-index="11"><div class="love-icon-content"><i class="fas fa-utensils"></i></div></div>
+                                <div class="love-item-icon" data-index="12"><div class="love-icon-content"><i class="fas fa-plane"></i></div></div>
+                                <div class="love-item-icon" data-index="13"><div class="love-icon-content"><i class="fas fa-music"></i></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="love-text-display">
+                        <h2 id="love-title">I LOVE CLEAN CODE</h2>
+                    </div>
+
+                    <div class="love-nav-btns">
+                        <button class="love-nav-btn prev" onclick="prevLoveItem()">
+                            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M23 13 L16 20 L23 27" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                        </button>
+                        <button class="love-nav-btn next" onclick="nextLoveItem()">
+                            <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 13 L24 20 L17 27" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORE VIEW: Technical Blueprint -->
+            <div id="about-core-view" class="about-view">
+                <div class="core-view-container">
+                    <button class="love-close-btn" onclick="closeCoreView()">&times;</button>
+                    
+                    <div class="core-flex-layout">
+                        <!-- Left: Large Neural Graphic -->
+                        <div class="core-visual-side">
+                            <div class="neural-engine-wrapper">
+                                <svg class="neural-engine-svg" viewBox="0 0 200 200">
+                                    <!-- Rotating Rings (Scaled Down to prevent cropping) -->
+                                    <circle class="engine-ring ring-1" cx="100" cy="100" r="75" />
+                                    <circle class="engine-ring ring-2" cx="100" cy="100" r="55" />
+                                    <circle class="engine-ring ring-3" cx="100" cy="100" r="35" />
+                                    
+                                    <!-- Central Rotating Gear -->
+                                    <g class="engine-gear">
+                                        <path d="M100 88 L103 85 L112 85 L115 88 L115 97 L112 100 L103 100 L100 97 Z" transform="rotate(0 100 100)" />
+                                        <path d="M100 88 L103 85 L112 85 L115 88 L115 97 L112 100 L103 100 L100 97 Z" transform="rotate(60 100 100)" />
+                                        <path d="M100 88 L103 85 L112 85 L115 88 L115 97 L112 100 L103 100 L100 97 Z" transform="rotate(120 100 100)" />
+                                        <path d="M100 88 L103 85 L112 85 L115 88 L115 97 L112 100 L103 100 L100 97 Z" transform="rotate(180 100 100)" />
+                                        <path d="M100 88 L103 85 L112 85 L115 88 L115 97 L112 100 L103 100 L100 97 Z" transform="rotate(240 100 100)" />
+                                        <path d="M100 88 L103 85 L112 85 L115 88 L115 97 L112 100 L103 100 L100 97 Z" transform="rotate(300 100 100)" />
+                                        <circle cx="100" cy="100" r="10" fill="none" stroke="white" stroke-width="1.5"/>
+                                    </g>
+
+                                    <!-- Core Nodes (Scaled Down to prevent cropping) -->
+                                    <path class="engine-core-path" d="M100 75 L130 130 L70 130 Z" />
+                                    <circle class="engine-node node-top" cx="100" cy="75" r="4" />
+                                    <circle class="engine-node node-left" cx="70" cy="130" r="4" />
+                                    <circle class="engine-node node-right" cx="130" cy="130" r="4" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Right: Info Slideshow -->
+                        <div class="core-info-side">
+                            <h2 class="core-info-title">CORE INFO</h2>
+                            
+                            <div class="core-slides-container">
+                                <!-- Slide 1: Code -->
+                                <div class="core-slide active" data-slide="0">
+                                    <h3 class="slide-subtitle">01. FULL-STACK PROGRAMMING</h3>
+                                    <p>End-to-end engineering with a focus on logic, scalability, and security. Writing code that is as elegant as it is robust.</p>
+                                    <div class="core-mini-icon active"><i class="fas fa-code"></i></div>
+                                </div>
+
+                                <!-- Slide 2: Future -->
+                                <div class="core-slide" data-slide="1">
+                                    <h3 class="slide-subtitle">02. AI & FUTURE TECH</h3>
+                                    <p>Integrating LLMs and Agentic AI to automate complex workflows. Embracing the future of human-machine synergy.</p>
+                                    <div class="core-mini-icon active"><i class="fas fa-microchip"></i></div>
+                                </div>
+                                
+                                <!-- Slide 3: Infra -->
+                                <div class="core-slide" data-slide="2">
+                                    <h3 class="slide-subtitle">03. IT INFRASTRUCTURE</h3>
+                                    <p>Designing high-availability hybrid clouds and resilient network backbones. I build the foundations that stay standing under pressure.</p>
+                                    <div class="core-mini-icon active"><i class="fas fa-network-wired"></i></div>
+                                </div>
+                            </div>
+
+                            <div class="core-slides-nav">
+                                <div class="slide-dot active" onclick="setCoreSlide(0)"></div>
+                                <div class="slide-dot" onclick="setCoreSlide(1)"></div>
+                                <div class="slide-dot" onclick="setCoreSlide(2)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORK VIEW: Mechanical Philosophy -->
+            <div id="about-work-view" class="about-view">
+                <div class="work-view-container">
+                    <button class="love-close-btn" onclick="closeWorkView()">&times;</button>
+                    
+                    <div class="work-flex-layout">
+                        <!-- Left: Enhanced Data Equalizer Visual -->
+                        <div class="work-visual-side">
+                            <div class="data-equalizer-container">
+                                <!-- Grid Background -->
+                                <div class="eq-grid"></div>
+                                
+                                <div class="data-equalizer">
+                                    <div class="eq-bar-track" data-label="01"><div class="eq-bar"></div></div>
+                                    <div class="eq-bar-track" data-label="02"><div class="eq-bar"></div></div>
+                                    <div class="eq-bar-track" data-label="03"><div class="eq-bar"></div></div>
+                                    <div class="eq-bar-track" data-label="04"><div class="eq-bar"></div></div>
+                                    <div class="eq-bar-track" data-label="05"><div class="eq-bar"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Info Slideshow -->
+                        <div class="work-info-side">
+                            <h2 class="work-info-title" id="work-slide-title">NEW MEDIA</h2>
+                            
+                            <div class="work-slides-container">
+                                <p id="work-slide-desc">My work crosses a broad range of categories in the digital space, both from a design and a technical perspective. I believe in using the right tools for the job.</p>
+                            </div>
+
+                            <div class="work-nav-controls">
+                                <button class="work-nav-btn" onclick="prevWorkSlide()"><i class="fas fa-arrow-left"></i></button>
+                                <button class="work-nav-btn" onclick="nextWorkSlide()"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Experience Section -->
+    <section id="resume" class="resume reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+                <p>My professional journey</p>
+            </div>
+            
+            <div class="resume-content">
+                <div class="resume-column">
+                    <h3><i class="fas fa-terminal"></i> Operation Logs</h3>
+                    
+                    <div class="resume-item">
+                        <div class="resume-badge">System ID: 01 // Active</div>
+                        <h4>Software Engineer & Data Analyst</h4>
+                        <span class="resume-date">2025 - Present</span>
+                        <p>Philippine Tuberculosis Society Inc. <span class="resume-role" style="display:block; margin-top:4px;">(Role: IT Operations and Branch Support Specialist)</span></p>
+                        <ul>
+                            <li>Engineered and deployed an automated data analysis pipeline, significantly reducing manual reporting time and improving organizational data accuracy.</li>
+                            <li>Maintained and scaled IT branch support systems, ensuring 99.9% uptime across critical infrastructure.</li>
+                            <li>Developed custom software solutions to streamline daily operations and enhance technology workflows.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-badge">System ID: 02 // Deployed</div>
+                        <h4>Senior System Engineer</h4>
+                        <span class="resume-date">2020 - 2024</span>
+                        <p>Cloudterrain Philippines Inc. <span class="resume-role" style="display:block; margin-top:4px;">Client: Moet Hennessy Louis Vuitton</span></p>
+                        <ul>
+                            <li>Architected and implemented enterprise-scale cloud solutions, optimizing system performance and reducing infrastructure costs.</li>
+                            <li>Spearheaded technical deployment projects from conception to launch, ensuring zero downtime for mission-critical client services.</li>
+                            <li>Managed and secured cloud-based architectures, implementing robust security protocols and monitoring systems.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-badge">System ID: 03 // Completed</div>
+                        <h4>Lead Security System Engineer</h4>
+                        <span class="resume-date">2014 - 2019</span>
+                        <p>IBEST and Calvelo Engineered Systems Corporation <span class="resume-role" style="display:block; margin-top:4px;">Client: Lopez Group of Companies</span></p>
+                        <ul>
+                            <li>Directed a high-performing engineering team to design and deploy enterprise-grade physical and digital security frameworks.</li>
+                            <li>Managed comprehensive infrastructure for the Rockwell Business Center, ensuring strict compliance with enterprise security standards.</li>
+                            <li>Executed complex technical integrations that modernized legacy systems and improved overall operational security.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-badge">System ID: 04 // Auxiliary</div>
+                        <h4>Freelance Graphic Designer & Brand Specialist</h4>
+                        <span class="resume-date">2013 - Present</span>
+                        <p>Self-Employed / Prime Solutions Enterprise</p>
+                        <ul>
+                            <li>Designed high-impact visual identities, digital assets, and print media for diverse client portfolios.</li>
+                            <li>Collaborated directly with stakeholders to translate business goals into cohesive brand marketing materials.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="resume-column">
+                    <h3><i class="fas fa-microchip"></i> System Capabilities</h3>
+                    
+                    <div class="tech-stack-grid">
+                        <!-- Module: Frontend -->
+                        <div class="tech-module">
+                            <h4 class="tech-category-title">[ MODULE: FRONTEND ]</h4>
+                            <div class="tech-badges">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Next.js</span>
+                                <span class="tech-badge">JavaScript (ES6+)</span>
+                                <span class="tech-badge">TypeScript</span>
+                                <span class="tech-badge">TailwindCSS</span>
+                                <span class="tech-badge">UI/UX Design</span>
+                            </div>
+                        </div>
+
+                        <!-- Module: Backend & Data -->
+                        <div class="tech-module">
+                            <h4 class="tech-category-title">[ MODULE: BACKEND & DATA ]</h4>
+                            <div class="tech-badges">
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">SQL</span>
+                                <span class="tech-badge">Data Analysis</span>
+                            </div>
+                        </div>
+
+                        <!-- Module: Infrastructure & Ops -->
+                        <div class="tech-module">
+                            <h4 class="tech-category-title">[ MODULE: INFRA & SEC ]</h4>
+                            <div class="tech-badges">
+                                <span class="tech-badge">Cloud Infrastructure</span>
+                                <span class="tech-badge">System Engineering</span>
+                                <span class="tech-badge">Docker</span>
+                                <span class="tech-badge">Cybersecurity</span>
+                                <span class="tech-badge">Network Admin</span>
+                            </div>
+                        </div>
+
+                        <!-- Module: Aux -->
+                        <div class="tech-module">
+                            <h4 class="tech-category-title">[ MODULE: AUXILIARY ]</h4>
+                            <div class="tech-badges">
+                                <span class="tech-badge">Graphic Design</span>
+                                <span class="tech-badge">Team Leadership</span>
+                                <span class="tech-badge">IT Project Mgmt</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sticky Floating Cyborg Companion for Experience Section -->
+                    <div class="sticky-cyborg-container cyborg-instance" data-section="resume">
+                        <div class="cyborg-dialog-box">
+                            <div class="dialog-text">Scanning portfolio data...</div>
+                            <div class="dialog-arrow"></div>
+                        </div>
+                        
+                        <div class="cyborg-hologram-effect"></div>
+                        <svg viewBox="0 0 200 240" class="sticky-companion-bot cyborg-bot">
+                            <defs>
+                                <!-- Holographic scan line -->
+                                <linearGradient id="scanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="rgba(0, 255, 255, 0)" />
+                                    <stop offset="50%" stop-color="rgba(0, 255, 255, 0.8)" />
+                                    <stop offset="100%" stop-color="rgba(0, 255, 255, 0)" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Scan line rect (hidden by default) -->
+                            <rect class="cyborg-scan-line" x="0" y="0" width="200" height="20" fill="url(#scanGradient)" opacity="0" pointer-events="none"/>
+                            
+                            <!-- Antenna -->
+                            <path d="M 130 50 L 140 25" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" />
+                            <circle cx="140" cy="25" r="7" fill="#c084fc" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Left Ear -->
+                            <rect x="33" y="70" width="10" height="30" rx="5" fill="#a855f7" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Right Ear -->
+                            <circle cx="167" cy="85" r="16" fill="#a855f7" stroke="#1a1a1a" stroke-width="3" />
+                            <circle cx="167" cy="85" r="9" fill="#581c87" />
+                            <!-- Head Body -->
+                            <rect x="40" y="40" width="120" height="90" rx="25" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" />
+                            <!-- Black Visor Screen -->
+                            <rect x="48" y="55" width="104" height="60" rx="15" fill="#0f172a" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Eyes Group -->
+                            <g class="cyborg-eyes-group">
+                                <g class="cyborg-eye left-eye">
+                                    <circle cx="76" cy="85" r="14" fill="#22d3ee" opacity="0.25" />
+                                    <circle class="cyborg-eye-pupil cyan-pupil pupil-left" cx="76" cy="85" r="9" fill="#22d3ee" />
+                                    <circle class="cyborg-eye-reflection" cx="73" cy="82" r="2.5" fill="#ffffff" />
+                                </g>
+                                <g class="cyborg-eye right-eye">
+                                    <circle cx="124" cy="85" r="14" fill="#f43f5e" opacity="0.25" />
+                                    <circle class="cyborg-eye-pupil pink-pupil pupil-right" cx="124" cy="85" r="9" fill="#f43f5e" />
+                                    <circle class="cyborg-eye-reflection" cx="121" cy="82" r="2.5" fill="#ffffff" />
+                                </g>
+                            </g>
+                            <!-- Neck -->
+                            <rect x="92" y="130" width="16" height="12" rx="4" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Torso -->
+                            <path d="M 75 142 C 75 142, 65 175, 75 185 C 80 190, 120 190, 125 185 C 135 175, 125 142, 125 142 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" />
+                            <!-- Lower Body -->
+                            <path d="M 72 172 C 75 188, 80 200, 100 200 C 120 200, 125 188, 128 172 C 128 172, 115 178, 100 178 C 85 178, 72 172, 72 172 Z" fill="#a855f7" stroke="#1a1a1a" stroke-width="4" />
+                            <!-- Left Arm -->
+                            <circle cx="68" cy="153" r="5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="68" y1="153" x2="58" y2="173" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <circle cx="58" cy="173" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="58" y1="173" x2="58" y2="191" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <path d="M 54 191 Q 58 197 62 191" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" />
+                            <!-- Right Arm -->
+                            <circle cx="132" cy="153" r="5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="132" y1="153" x2="142" y2="173" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <circle cx="142" cy="173" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                            <line x1="142" y1="173" x2="142" y2="191" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <path d="M 138 191 Q 142 197 146 191" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" />
+                            <!-- Left Leg -->
+                            <circle cx="88" cy="198" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="2.5" />
+                            <line x1="88" y1="198" x2="88" y2="213" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <ellipse cx="88" cy="217" rx="7" ry="4.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="3" />
+                            <!-- Right Leg -->
+                            <circle cx="112" cy="198" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="2.5" />
+                            <line x1="112" y1="198" x2="112" y2="213" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                            <ellipse cx="112" cy="217" rx="7" ry="4.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="3" />
+                        </svg>
+                        <div class="bot-status-text">SYSTEM NOMINAL // STANDBY</div>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-download">
+                <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services-inner">
+
+                        <!-- COVER STATE: Orbital Animation -->
+            <div class="services-cover" id="services-cover">
+                <div class="svc-cover-text reveal">
+                    <p class="svc-eyebrow">TECHNICAL STACK</p>
+                    <h2 class="svc-cover-title">WEB DEV<br/><em>SKILLS</em></h2>
+                    <p class="svc-cover-sub">Core technologies and coding expertise I use to build robust, modern applications.</p>
+                    <button type="button" class="svc-explore-btn" onclick="event.preventDefault(); openServicesView()">
+                        <span>Explore Services</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    </button>
+                </div>
+
+                <!-- Orbital SVG Animation — 800×800 viewBox, 9 planets -->
+                <div class="svc-orbital-wrapper reveal">
+                    <!-- Floating planet pin tooltip -->
+                    <div class="planet-pin" id="planet-pin">
+                        <div class="planet-pin-label" id="planet-pin-label"></div>
+                        <div class="planet-pin-stem"></div>
+                        <div class="planet-pin-dot"></div>
+                    </div>
+
+                                                                                                                                            <svg id="svc-solar-svg" class="svc-orbital-svg" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+
+                            <!-- Elliptical Paths -->
+                            <path id="orb0" d="M 500,466.4 A 80,33.6 0 1 1 499.9,466.4 Z"/><path id="orb1" d="M 500,449.6 A 120,50.4 0 1 1 499.9,449.6 Z"/><path id="orb2" d="M 500,432.8 A 160,67.2 0 1 1 499.9,432.8 Z"/><path id="orb3" d="M 500,416.0 A 200,84.0 0 1 1 499.9,416.0 Z"/><path id="orb4" d="M 500,378.2 A 290,121.8 0 1 1 499.9,378.2 Z"/><path id="orb5" d="M 500,348.8 A 360,151.2 0 1 1 499.9,348.8 Z"/><path id="orb6" d="M 500,323.6 A 420,176.4 0 1 1 499.9,323.6 Z"/><path id="orb7" d="M 500,306.8 A 460,193.2 0 1 1 499.9,306.8 Z"/><path id="orb8" d="M 500,292.1 A 495,207.9 0 1 1 499.9,292.1 Z"/>
+                            
+                            <!-- ALL GRAY Vector 3D Gradient -->
+                            <radialGradient id="vectorSphere" cx="30%" cy="30%" r="70%" fx="30%" fy="30%">
+                                <stop offset="0%" stop-color="#999999"/> <!-- Light Gray Highlight -->
+                                <stop offset="60%" stop-color="#333333"/> <!-- Mid Gray -->
+                                <stop offset="100%" stop-color="#111111"/> <!-- Dark Gray Shadow -->
+                            </radialGradient>
+                            
+                            <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#fffbe6"/>
+                                <stop offset="60%" stop-color="#ffed85"/>
+                                <stop offset="100%" stop-color="#ffd700"/>
+                            </radialGradient>
+
+                        </defs>
+
+                        <!-- Background Technical Grid -->
+                        <line x1="0" y1="500" x2="1000" y2="500" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4"/>
+                        <line x1="500" y1="0" x2="500" y2="1000" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4"/>
+
+                        <!-- 9 Orbit rings -->
+<ellipse cx="500" cy="500" rx="80" ry="33.6" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="120" ry="50.4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="160" ry="67.2" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="200" ry="84.0" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="290" ry="121.8" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="360" ry="151.2" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="420" ry="176.4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="460" ry="193.2" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<ellipse cx="500" cy="500" rx="495" ry="207.9" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                        <!-- Asteroid Belt -->
+<g class="asteroid-belt"><circle cx="294.8" cy="436.0" r="0.6" fill="rgba(255,255,255,0.25)"/> <circle cx="488.1" cy="603.2" r="1.2" fill="rgba(255,255,255,0.15)"/> <circle cx="561.9" cy="596.2" r="1.4" fill="rgba(255,255,255,0.25)"/> <circle cx="703.2" cy="441.4" r="1.4" fill="rgba(255,255,255,0.3)"/> <circle cx="502.2" cy="389.3" r="1.1" fill="rgba(255,255,255,0.1)"/> <circle cx="643.9" cy="589.8" r="1.7" fill="rgba(255,255,255,0.25)"/> <circle cx="312.6" cy="564.5" r="1.9" fill="rgba(255,255,255,0.1)"/> <circle cx="276.3" cy="552.3" r="1.6" fill="rgba(255,255,255,0.3)"/> <circle cx="510.3" cy="606.1" r="1.5" fill="rgba(255,255,255,0.2)"/> <circle cx="324.4" cy="420.6" r="1.3" fill="rgba(255,255,255,0.4)"/> <circle cx="739.4" cy="458.8" r="1.5" fill="rgba(255,255,255,0.4)"/> <circle cx="344.9" cy="585.5" r="1.0" fill="rgba(255,255,255,0.3)"/> <circle cx="728.1" cy="447.1" r="2.1" fill="rgba(255,255,255,0.3)"/> <circle cx="506.9" cy="393.3" r="1.1" fill="rgba(255,255,255,0.3)"/> <circle cx="332.1" cy="575.6" r="1.2" fill="rgba(255,255,255,0.4)"/> <circle cx="692.8" cy="556.4" r="2.0" fill="rgba(255,255,255,0.2)"/> <circle cx="575.6" cy="602.9" r="1.6" fill="rgba(255,255,255,0.3)"/> <circle cx="300.3" cy="571.3" r="1.8" fill="rgba(255,255,255,0.2)"/> <circle cx="261.7" cy="523.8" r="2.1" fill="rgba(255,255,255,0.4)"/> <circle cx="751.3" cy="519.6" r="2.1" fill="rgba(255,255,255,0.2)"/> <circle cx="397.8" cy="590.7" r="1.4" fill="rgba(255,255,255,0.3)"/> <circle cx="674.9" cy="581.7" r="1.9" fill="rgba(255,255,255,0.1)"/> <circle cx="666.7" cy="579.3" r="1.6" fill="rgba(255,255,255,0.3)"/> <circle cx="742.9" cy="480.7" r="0.8" fill="rgba(255,255,255,0.2)"/> <circle cx="761.6" cy="485.6" r="0.9" fill="rgba(255,255,255,0.1)"/> <circle cx="542.7" cy="391.4" r="2.0" fill="rgba(255,255,255,0.4)"/> <circle cx="703.2" cy="564.6" r="0.8" fill="rgba(255,255,255,0.4)"/> <circle cx="372.7" cy="586.2" r="1.0" fill="rgba(255,255,255,0.4)"/> <circle cx="385.9" cy="596.3" r="1.1" fill="rgba(255,255,255,0.4)"/> <circle cx="698.3" cy="558.7" r="1.4" fill="rgba(255,255,255,0.4)"/> <circle cx="328.4" cy="416.0" r="1.1" fill="rgba(255,255,255,0.2)"/> <circle cx="538.5" cy="597.7" r="0.8" fill="rgba(255,255,255,0.3)"/> <circle cx="649.4" cy="413.5" r="1.8" fill="rgba(255,255,255,0.3)"/> <circle cx="253.4" cy="530.2" r="0.9" fill="rgba(255,255,255,0.3)"/> <circle cx="707.0" cy="436.5" r="1.4" fill="rgba(255,255,255,0.3)"/> <circle cx="376.0" cy="592.3" r="1.2" fill="rgba(255,255,255,0.4)"/> <circle cx="344.9" cy="577.4" r="2.2" fill="rgba(255,255,255,0.2)"/> <circle cx="248.2" cy="502.9" r="0.9" fill="rgba(255,255,255,0.3)"/> <circle cx="268.3" cy="517.2" r="1.1" fill="rgba(255,255,255,0.3)"/> <circle cx="504.8" cy="395.8" r="0.7" fill="rgba(255,255,255,0.4)"/> <circle cx="414.1" cy="398.4" r="1.6" fill="rgba(255,255,255,0.2)"/> <circle cx="370.6" cy="412.8" r="1.2" fill="rgba(255,255,255,0.2)"/> <circle cx="747.1" cy="533.7" r="1.6" fill="rgba(255,255,255,0.1)"/> <circle cx="581.6" cy="604.7" r="1.1" fill="rgba(255,255,255,0.3)"/> <circle cx="666.7" cy="574.1" r="0.6" fill="rgba(255,255,255,0.2)"/> <circle cx="297.6" cy="553.9" r="1.7" fill="rgba(255,255,255,0.3)"/> <circle cx="721.2" cy="451.0" r="0.9" fill="rgba(255,255,255,0.3)"/> <circle cx="683.3" cy="420.3" r="2.2" fill="rgba(255,255,255,0.1)"/> <circle cx="260.5" cy="546.3" r="1.9" fill="rgba(255,255,255,0.1)"/> <circle cx="524.9" cy="601.9" r="1.2" fill="rgba(255,255,255,0.2)"/> <circle cx="278.5" cy="446.9" r="0.6" fill="rgba(255,255,255,0.2)"/> <circle cx="754.9" cy="526.9" r="1.9" fill="rgba(255,255,255,0.3)"/> <circle cx="738.5" cy="534.1" r="0.8" fill="rgba(255,255,255,0.3)"/> <circle cx="541.3" cy="390.1" r="1.7" fill="rgba(255,255,255,0.2)"/> <circle cx="248.9" cy="527.6" r="1.2" fill="rgba(255,255,255,0.1)"/> <circle cx="376.2" cy="401.9" r="1.9" fill="rgba(255,255,255,0.2)"/> <circle cx="628.3" cy="584.7" r="1.8" fill="rgba(255,255,255,0.2)"/> <circle cx="342.3" cy="417.2" r="1.3" fill="rgba(255,255,255,0.4)"/> <circle cx="624.6" cy="408.7" r="2.0" fill="rgba(255,255,255,0.4)"/> <circle cx="677.2" cy="572.1" r="1.6" fill="rgba(255,255,255,0.3)"/> <circle cx="489.4" cy="610.9" r="1.7" fill="rgba(255,255,255,0.3)"/> <circle cx="246.8" cy="501.2" r="0.9" fill="rgba(255,255,255,0.3)"/> <circle cx="257.2" cy="494.7" r="2.0" fill="rgba(255,255,255,0.1)"/> <circle cx="642.1" cy="593.7" r="1.2" fill="rgba(255,255,255,0.1)"/> <circle cx="381.5" cy="597.0" r="1.8" fill="rgba(255,255,255,0.3)"/> <circle cx="752.8" cy="500.0" r="1.1" fill="rgba(255,255,255,0.4)"/> <circle cx="598.7" cy="600.8" r="1.7" fill="rgba(255,255,255,0.4)"/> <circle cx="317.4" cy="568.7" r="0.7" fill="rgba(255,255,255,0.3)"/> <circle cx="251.2" cy="484.3" r="1.4" fill="rgba(255,255,255,0.2)"/> <circle cx="478.9" cy="392.9" r="2.0" fill="rgba(255,255,255,0.3)"/> <circle cx="760.7" cy="484.3" r="1.1" fill="rgba(255,255,255,0.3)"/> <circle cx="267.9" cy="453.4" r="0.8" fill="rgba(255,255,255,0.2)"/> <circle cx="517.9" cy="400.4" r="1.5" fill="rgba(255,255,255,0.1)"/> <circle cx="370.1" cy="582.5" r="0.8" fill="rgba(255,255,255,0.3)"/> <circle cx="469.7" cy="390.7" r="2.0" fill="rgba(255,255,255,0.2)"/> <circle cx="746.1" cy="530.2" r="1.1" fill="rgba(255,255,255,0.2)"/> <circle cx="664.4" cy="578.6" r="1.1" fill="rgba(255,255,255,0.2)"/> <circle cx="531.9" cy="399.8" r="1.7" fill="rgba(255,255,255,0.3)"/> <circle cx="292.9" cy="567.3" r="1.4" fill="rgba(255,255,255,0.3)"/> <circle cx="483.7" cy="391.7" r="1.2" fill="rgba(255,255,255,0.4)"/> <circle cx="286.1" cy="449.3" r="1.5" fill="rgba(255,255,255,0.4)"/> <circle cx="615.6" cy="407.4" r="2.0" fill="rgba(255,255,255,0.3)"/> <circle cx="756.3" cy="525.8" r="1.9" fill="rgba(255,255,255,0.2)"/> <circle cx="596.5" cy="591.5" r="2.1" fill="rgba(255,255,255,0.2)"/> <circle cx="752.3" cy="484.9" r="2.0" fill="rgba(255,255,255,0.3)"/> <circle cx="331.9" cy="426.9" r="1.6" fill="rgba(255,255,255,0.3)"/> <circle cx="705.9" cy="566.3" r="1.9" fill="rgba(255,255,255,0.3)"/> <circle cx="526.5" cy="391.1" r="2.0" fill="rgba(255,255,255,0.2)"/> <circle cx="499.5" cy="601.7" r="1.6" fill="rgba(255,255,255,0.2)"/> <circle cx="512.2" cy="397.0" r="0.9" fill="rgba(255,255,255,0.4)"/> <circle cx="586.9" cy="403.4" r="1.5" fill="rgba(255,255,255,0.3)"/> <circle cx="674.6" cy="576.5" r="0.7" fill="rgba(255,255,255,0.2)"/> <circle cx="467.4" cy="602.1" r="1.0" fill="rgba(255,255,255,0.3)"/> <circle cx="284.1" cy="451.6" r="1.1" fill="rgba(255,255,255,0.1)"/> <circle cx="558.6" cy="404.0" r="0.6" fill="rgba(255,255,255,0.3)"/> <circle cx="426.9" cy="599.7" r="1.4" fill="rgba(255,255,255,0.1)"/> <circle cx="266.1" cy="451.7" r="1.9" fill="rgba(255,255,255,0.2)"/> <circle cx="506.3" cy="609.9" r="1.0" fill="rgba(255,255,255,0.3)"/> <circle cx="518.8" cy="401.2" r="1.4" fill="rgba(255,255,255,0.1)"/> <circle cx="722.3" cy="449.3" r="1.4" fill="rgba(255,255,255,0.3)"/> <circle cx="677.3" cy="573.2" r="0.9" fill="rgba(255,255,255,0.3)"/> <circle cx="255.0" cy="489.1" r="1.3" fill="rgba(255,255,255,0.2)"/> <circle cx="283.4" cy="456.9" r="0.7" fill="rgba(255,255,255,0.3)"/> <circle cx="579.0" cy="605.7" r="1.8" fill="rgba(255,255,255,0.2)"/> <circle cx="716.8" cy="548.0" r="0.8" fill="rgba(255,255,255,0.3)"/> <circle cx="277.7" cy="449.4" r="2.1" fill="rgba(255,255,255,0.2)"/> <circle cx="346.7" cy="586.8" r="1.1" fill="rgba(255,255,255,0.4)"/> <circle cx="259.7" cy="528.5" r="1.0" fill="rgba(255,255,255,0.3)"/> <circle cx="585.1" cy="405.2" r="1.0" fill="rgba(255,255,255,0.3)"/> <circle cx="556.8" cy="401.2" r="1.3" fill="rgba(255,255,255,0.2)"/> <circle cx="703.8" cy="557.3" r="1.2" fill="rgba(255,255,255,0.1)"/> <circle cx="496.3" cy="607.5" r="0.8" fill="rgba(255,255,255,0.2)"/> <circle cx="254.7" cy="498.4" r="1.7" fill="rgba(255,255,255,0.2)"/> <circle cx="748.2" cy="468.2" r="1.0" fill="rgba(255,255,255,0.3)"/> <circle cx="259.1" cy="474.1" r="2.0" fill="rgba(255,255,255,0.2)"/> <circle cx="601.5" cy="600.7" r="0.8" fill="rgba(255,255,255,0.2)"/> <circle cx="272.7" cy="545.7" r="1.9" fill="rgba(255,255,255,0.2)"/> <circle cx="725.6" cy="531.2" r="1.6" fill="rgba(255,255,255,0.4)"/> <circle cx="743.5" cy="458.8" r="1.6" fill="rgba(255,255,255,0.2)"/> <circle cx="557.5" cy="392.5" r="1.6" fill="rgba(255,255,255,0.1)"/> <circle cx="598.1" cy="597.8" r="1.2" fill="rgba(255,255,255,0.4)"/> <circle cx="700.2" cy="556.8" r="0.6" fill="rgba(255,255,255,0.3)"/> <circle cx="756.2" cy="502.7" r="1.4" fill="rgba(255,255,255,0.3)"/> <circle cx="267.1" cy="479.6" r="2.0" fill="rgba(255,255,255,0.2)"/> <circle cx="277.4" cy="454.7" r="1.4" fill="rgba(255,255,255,0.2)"/> <circle cx="251.0" cy="523.6" r="1.4" fill="rgba(255,255,255,0.4)"/> <circle cx="259.6" cy="487.3" r="1.8" fill="rgba(255,255,255,0.3)"/> <circle cx="713.1" cy="439.7" r="1.6" fill="rgba(255,255,255,0.3)"/> <circle cx="547.8" cy="394.1" r="1.6" fill="rgba(255,255,255,0.2)"/> <circle cx="729.7" cy="546.4" r="2.2" fill="rgba(255,255,255,0.4)"/></g>
+
+                        <!-- Sun (Maintained High Visibility) -->
+                        <circle cx="500" cy="500" r="42" fill="url(#sunGrad)" stroke="rgba(255,215,0,0.3)" stroke-width="2" class="svc-sun"/>
+                        <circle cx="500" cy="500" r="58" fill="rgba(255,237,133,0.15)" class="svc-sun-pulse"/>
+                        <circle cx="500" cy="500" r="80" fill="rgba(255,237,133,0.05)" class="svc-sun-pulse2"/>
+
+
+                        <!-- Planet 1 (Vector Gray) -->
+                        <circle id="planet-0" r="7" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="5s" begin="-1.55s" repeatCount="indefinite">
+                                <mpath href="#orb0"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 2 (Vector Gray) -->
+                        <circle id="planet-1" r="9" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="9s" begin="-4.04s" repeatCount="indefinite">
+                                <mpath href="#orb1"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 3 (Vector Gray) -->
+                        <circle id="planet-2" r="10" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="14s" begin="-6.80s" repeatCount="indefinite">
+                                <mpath href="#orb2"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 4 (Vector Gray) -->
+                        <circle id="planet-3" r="8" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="22s" begin="-20.82s" repeatCount="indefinite">
+                                <mpath href="#orb3"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 5 (Vector Gray) -->
+                        <circle id="planet-4" r="22" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="48s" begin="-0.66s" repeatCount="indefinite">
+                                <mpath href="#orb4"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 6: Saturn (Vector Gray) -->
+                        <g id="planet-5" class="svc-planet">
+                            <animateMotion dur="70s" begin="-38.50s" repeatCount="indefinite">
+                                <mpath href="#orb5"/>
+                            </animateMotion>
+                            <ellipse rx="28" ry="9" cx="0" cy="0" fill="none" stroke="rgba(0,0,0,0.18)" stroke-width="2.5" transform="rotate(-25)"/>
+                            <circle r="16" fill="url(#vectorSphere)"/>
+                        </g>
+                        <!-- Planet 7 (Vector Gray) -->
+                        <circle id="planet-6" r="14" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="90s" begin="-11.94s" repeatCount="indefinite">
+                                <mpath href="#orb6"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 8 (Vector Gray) -->
+                        <circle id="planet-7" r="14" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="115s" begin="-98.24s" repeatCount="indefinite">
+                                <mpath href="#orb7"/>
+                            </animateMotion>
+                        </circle>
+                        <!-- Planet 9 (Vector Gray) -->
+                        <circle id="planet-8" r="6" fill="url(#vectorSphere)" class="svc-planet">
+                            <animateMotion dur="140s" begin="-136.66s" repeatCount="indefinite">
+                                <mpath href="#orb8"/>
+                            </animateMotion>
+                        </circle>
+                    </svg>
+
+                    <!-- 9 label tags — each maps to a planet -->
+                    <div class="svc-orbit-labels">
+                        <span class="svc-orbit-label active" data-planet="0">JAVASCRIPT</span>
+                        <span class="svc-orbit-label" data-planet="1">PYTHON</span>
+                        <span class="svc-orbit-label" data-planet="2">REACT</span>
+                        <span class="svc-orbit-label" data-planet="3">NEXT.JS</span>
+                        <span class="svc-orbit-label" data-planet="4">NODE.JS</span>
+                        <span class="svc-orbit-label" data-planet="5">TYPESCRIPT</span>
+                        <span class="svc-orbit-label" data-planet="6">MONGODB</span>
+                        <span class="svc-orbit-label" data-planet="7">SQL</span>
+                        <span class="svc-orbit-label" data-planet="8">DOCKER</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAIL STATE: Cards Grid -->
+            <div class="services-detail" id="services-detail">
+                <div class="svc-detail-header">
+                    <button class="svc-back-btn" onclick="closeServicesView()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                        <span>Back</span>
+                    </button>
+                    <h2 class="svc-detail-title">Services <em>&amp; Skills</em></h2>
+                </div>
+                <div class="svc-carousel-container">
+                    <button class="svc-carousel-nav prev" onclick="moveSvcCarousel(-1)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    
+                    <div class="svc-carousel-viewport">
+                        <div class="services-grid" id="svc-grid">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <rect x="8" y="14" width="44" height="32" rx="4" class="icon-path"/>
+                                        <line x1="8" y1="22" x2="52" y2="22" class="icon-path"/>
+                                        <circle cx="14" cy="18" r="2" class="icon-dot"/>
+                                        <circle cx="21" cy="18" r="2" class="icon-dot"/>
+                                        <line x1="20" y1="34" x2="40" y2="34" class="icon-path svc-path-anim"/>
+                                        <line x1="20" y1="41" x2="33" y2="41" class="icon-path svc-path-anim"/>
+                                    </svg>
+                                </div>
+                                <h3>Web Development</h3>
+                                <p>Full-featured business websites with modern design and functionality</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 10 Q50 18 50 30 Q50 48 30 52 Q10 48 10 30 Q10 18 30 10Z" class="icon-path"/>
+                                        <circle cx="30" cy="30" r="8" class="icon-path"/>
+                                        <line x1="30" y1="10" x2="30" y2="22" class="icon-path svc-path-anim"/>
+                                        <line x1="30" y1="38" x2="30" y2="50" class="icon-path svc-path-anim"/>
+                                    </svg>
+                                </div>
+                                <h3>SaaS Development</h3>
+                                <p>Scalable software-as-a-service platforms for enterprise and government</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <circle cx="30" cy="30" r="10" class="icon-path"/>
+                                        <circle cx="30" cy="30" r="18" class="icon-path" style="stroke-dasharray:5 4"/>
+                                        <line x1="14" y1="14" x2="20" y2="20" class="icon-path svc-path-anim"/>
+                                        <line x1="46" y1="46" x2="40" y2="40" class="icon-path svc-path-anim"/>
+                                        <line x1="46" y1="14" x2="40" y2="20" class="icon-path svc-path-anim"/>
+                                    </svg>
+                                </div>
+                                <h3>Business Automation</h3>
+                                <p>Paperless systems and workflow automation for companies</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <rect x="18" y="10" width="24" height="40" rx="4" class="icon-path"/>
+                                        <line x1="23" y1="20" x2="37" y2="20" class="icon-path svc-path-anim"/>
+                                        <line x1="23" y1="28" x2="37" y2="28" class="icon-path svc-path-anim"/>
+                                        <circle cx="30" cy="42" r="2.5" class="icon-dot"/>
+                                    </svg>
+                                </div>
+                                <h3>Responsive Design</h3>
+                                <p>Mobile-first approach ensuring perfect experience on all devices</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <ellipse cx="30" cy="18" rx="16" ry="6" class="icon-path"/>
+                                        <path d="M14 18 V30 Q14 36 30 36 Q46 36 46 30 V18" class="icon-path svc-path-anim"/>
+                                        <path d="M14 30 V42 Q14 48 30 48 Q46 48 46 42 V30" class="icon-path svc-path-anim"/>
+                                    </svg>
+                                </div>
+                                <h3>Database Solutions</h3>
+                                <p>Efficient database design and optimization for your applications</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 8 L34 22 L48 22 L37 31 L41 45 L30 36 L19 45 L23 31 L12 22 L26 22 Z" class="icon-path"/>
+                                        <circle cx="30" cy="26" r="3.5" class="icon-dot"/>
+                                    </svg>
+                                </div>
+                                <h3>AI-Powered Development</h3>
+                                <p>Leveraging modern AI tools for rapid, efficient development</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <rect x="10" y="20" width="40" height="26" rx="3" class="icon-path"/>
+                                        <line x1="18" y1="30" x2="30" y2="30" class="icon-path svc-path-anim"/>
+                                        <line x1="18" y1="37" x2="26" y2="37" class="icon-path svc-path-anim"/>
+                                        <path d="M30 20 V12 Q30 8 34 8 L42 8 Q46 8 46 12 V20" class="icon-path svc-path-anim"/>
+                                    </svg>
+                                </div>
+                                <h3>IT Infrastructure</h3>
+                                <p>Enterprise-grade server, network, and cloud architecture setup</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <path d="M30 8 L50 16 L50 30 Q50 44 30 52 Q10 44 10 30 L10 16 Z" class="icon-path"/>
+                                        <polyline points="22,30 28,36 40,24" class="icon-path svc-path-anim"/>
+                                    </svg>
+                                </div>
+                                <h3>Security &amp; DevOps</h3>
+                                <p>Secure pipelines, threat mitigation, and CI/CD automation</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <svg class="svc-icon-svg" viewBox="0 0 60 60" fill="none">
+                                        <rect x="18" y="8" width="24" height="44" rx="5" class="icon-path"/>
+                                        <line x1="24" y1="17" x2="36" y2="17" class="icon-path svc-path-anim"/>
+                                        <circle cx="30" cy="44" r="2.5" class="icon-dot"/>
+                                    </svg>
+                                </div>
+                                <h3>Mobile Development</h3>
+                                <p>Cross-platform mobile apps built for speed and reliability</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="svc-carousel-nav next" onclick="moveSvcCarousel(1)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+
+                <!-- Sticky Floating Cyborg Companion for Services Section -->
+                <div class="sticky-cyborg-container cyborg-instance" data-section="services">
+                    <div class="cyborg-dialog-box">
+                        <div class="dialog-text">Scanning service modules...</div>
+                        <div class="dialog-arrow"></div>
+                    </div>
+                    
+                    <div class="cyborg-hologram-effect"></div>
+                    <svg viewBox="0 0 200 240" class="sticky-companion-bot cyborg-bot">
+                        <defs>
+                            <!-- Holographic scan line -->
+                            <linearGradient id="scanGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(0, 255, 255, 0)" />
+                                <stop offset="50%" stop-color="rgba(0, 255, 255, 0.8)" />
+                                <stop offset="100%" stop-color="rgba(0, 255, 255, 0)" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Scan line rect (hidden by default) -->
+                        <rect class="cyborg-scan-line" x="0" y="0" width="200" height="20" fill="url(#scanGradient2)" opacity="0" pointer-events="none"/>
+                        
+                        <!-- Antenna -->
+                        <path d="M 130 50 L 140 25" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" />
+                        <circle cx="140" cy="25" r="7" fill="#c084fc" stroke="#1a1a1a" stroke-width="3" />
+                        <!-- Left Ear -->
+                        <rect x="33" y="70" width="10" height="30" rx="5" fill="#a855f7" stroke="#1a1a1a" stroke-width="3" />
+                        <!-- Right Ear -->
+                        <circle cx="167" cy="85" r="16" fill="#a855f7" stroke="#1a1a1a" stroke-width="3" />
+                        <circle cx="167" cy="85" r="9" fill="#581c87" />
+                        <!-- Head Body -->
+                        <rect x="40" y="40" width="120" height="90" rx="25" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" />
+                        <!-- Black Visor Screen -->
+                        <rect x="48" y="55" width="104" height="60" rx="15" fill="#0f172a" stroke="#1a1a1a" stroke-width="3" />
+                        <!-- Eyes Group -->
+                        <g class="cyborg-eyes-group">
+                            <g class="cyborg-eye left-eye">
+                                <circle cx="76" cy="85" r="14" fill="#22d3ee" opacity="0.25" />
+                                <circle class="cyborg-eye-pupil cyan-pupil pupil-left" cx="76" cy="85" r="9" fill="#22d3ee" />
+                                <circle class="cyborg-eye-reflection" cx="73" cy="82" r="2.5" fill="#ffffff" />
+                            </g>
+                            <g class="cyborg-eye right-eye">
+                                <circle cx="124" cy="85" r="14" fill="#f43f5e" opacity="0.25" />
+                                <circle class="cyborg-eye-pupil pink-pupil pupil-right" cx="124" cy="85" r="9" fill="#f43f5e" />
+                                <circle class="cyborg-eye-reflection" cx="121" cy="82" r="2.5" fill="#ffffff" />
+                            </g>
+                        </g>
+                        <!-- Neck -->
+                        <rect x="92" y="130" width="16" height="12" rx="4" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                        <!-- Torso -->
+                        <path d="M 75 142 C 75 142, 65 175, 75 185 C 80 190, 120 190, 125 185 C 135 175, 125 142, 125 142 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="4" />
+                        <!-- Lower Body -->
+                        <path d="M 72 172 C 75 188, 80 200, 100 200 C 120 200, 125 188, 128 172 C 128 172, 115 178, 100 178 C 85 178, 72 172, 72 172 Z" fill="#a855f7" stroke="#1a1a1a" stroke-width="4" />
+                        <!-- Left Arm -->
+                        <circle cx="68" cy="153" r="5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                        <line x1="68" y1="153" x2="58" y2="173" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                        <circle cx="58" cy="173" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                        <line x1="58" y1="173" x2="58" y2="191" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                        <path d="M 54 191 Q 58 197 62 191" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" />
+                        <!-- Right Arm -->
+                        <circle cx="132" cy="153" r="5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                        <line x1="132" y1="153" x2="142" y2="173" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                        <circle cx="142" cy="173" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="3" />
+                        <line x1="142" y1="173" x2="142" y2="191" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                        <path d="M 138 191 Q 142 197 146 191" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" />
+                        <!-- Left Leg -->
+                        <circle cx="88" cy="198" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="2.5" />
+                        <line x1="88" y1="198" x2="88" y2="213" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                        <ellipse cx="88" cy="217" rx="7" ry="4.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="3" />
+                        <!-- Right Leg -->
+                        <circle cx="112" cy="198" r="4.5" fill="#475569" stroke="#1a1a1a" stroke-width="2.5" />
+                        <line x1="112" y1="198" x2="112" y2="213" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round" />
+                        <ellipse cx="112" cy="217" rx="7" ry="4.5" fill="#ffffff" stroke="#1a1a1a" stroke-width="3" />
+                    </svg>
+                    <div class="bot-status-text">SYSTEM NOMINAL // STANDBY</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section — Arch Carousel -->
+    <section id="projects" class="projects">
+        <!-- Cyber grid -->
+        <div class="projects-cyber-grid"></div>
+        <div class="projects-scan-line"></div>
+
+        <div class="container">
+            <div class="section-header">
+                <div class="projects-hud-label">// SYSTEM LOG — DEPLOYED PROJECTS</div>
+                <h2>Recent Work</h2>
+                <p>> SCANNING <span class="projects-count">7</span> ACTIVE DEPLOYMENTS<span class="blink-cursor">_</span></p>
+            </div>
+
+            <div class="work-list" id="work-list">
+
+                <div class="work-item" data-index="0">
+                    <div class="work-item-inner">
+                        <span class="work-num">[01]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">SaaS (brgyDesk)</h3>
+                            <span class="work-category">> COMMUNITY_MANAGEMENT_PLATFORM</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>AI + FULL-STACK</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="IMAGES/works/SaaS/0.png" alt="brgyDesk SaaS">
+                        <img class="img-color" src="IMAGES/works/SaaS/0.png" alt="brgyDesk SaaS">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="1">
+                    <div class="work-item-inner">
+                        <span class="work-num">[02]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Time Logger System</h3>
+                            <span class="work-category">> ENTERPRISE_ATTENDANCE_TRACKING</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>AI + AUTOMATION</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="IMAGES/works/timelogger/1.png" alt="Time Logger">
+                        <img class="img-color" src="IMAGES/works/timelogger/1.png" alt="Time Logger">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="2">
+                    <div class="work-item-inner">
+                        <span class="work-num">[03]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">PTSI Website</h3>
+                            <span class="work-category">> CORPORATE_DIGITAL_PRESENCE</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>LIVE</em></span>
+                            <span>STACK: <em>FULL-STACK</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="IMAGES/works/ptsi/1.png" alt="PTSI Website">
+                        <img class="img-color" src="IMAGES/works/ptsi/1.png" alt="PTSI Website">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="3">
+                    <div class="work-item-inner">
+                        <span class="work-num">[04]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">COCOSTUDIO Website</h3>
+                            <span class="work-category">> CREATIVE_PORTFOLIO</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>LIVE</em></span>
+                            <span>STACK: <em>FULL-STACK</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="COCOSTUDIO">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="COCOSTUDIO">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="4">
+                    <div class="work-item-inner">
+                        <span class="work-num">[05]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Company Intranet</h3>
+                            <span class="work-category">> SECURE_INTERNAL_ECOSYSTEM</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>AI + FULL-STACK</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Company Intranet">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Company Intranet">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="5">
+                    <div class="work-item-inner">
+                        <span class="work-num">[06]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Paperless Automation</h3>
+                            <span class="work-category">> DIGITAL_WORKFLOW_SYSTEM</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>AI + AUTOMATION</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Automation">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Automation">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="6">
+                    <div class="work-item-inner">
+                        <span class="work-num">[07]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Live Count System</h3>
+                            <span class="work-category">> REALTIME_ANALYTICS</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>LIVE</em></span>
+                            <span>STACK: <em>AI + FULL-STACK</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=600" alt="Live tracking">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=600" alt="Live tracking">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Floating cursor preview -->
+        <div class="work-cursor-preview" id="work-cursor-preview">
+            <img src="" alt="" id="work-cursor-img">
+        </div>
+
+    </section>
+    <!-- Project Modal Structure -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">×</button>
+            
+            <div class="modal-visual">
+                <div class="mockup-wrapper">
+                    <div class="mockup-frame">
+                        <img id="modal-main-img" src="" alt="Project Visual" class="modal-main-img">
+                    </div>
+                </div>
+                <div class="modal-gallery" id="modal-gallery">
+                    <!-- Gallery thumbs injected by JS -->
+                </div>
+            </div>
+            
+            <div class="modal-details">
+                <span class="modal-tag">Project</span>
+                <h2 id="modal-title" class="modal-title">PROJECT TITLE</h2>
+                
+                <h4 class="modal-section-title">About</h4>
+                <p id="modal-about" class="modal-about">Description goes here.</p>
+                
+                <a id="modal-launch-link" href="#" target="_blank" class="modal-launch-btn">
+                    Launch Project <i class="fas fa-external-link-alt"></i>
+                </a>
+                
+                <div class="modal-nav">
+                    <button class="modal-nav-btn" onclick="prevProject()">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="modal-nav-btn" onclick="nextProject()">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <span class="modal-counter"><span id="modal-curr-idx">1</span>/<span id="modal-total-count">4</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <!-- Cyber grid background -->
+        <div class="contact-grid-bg"></div>
+
+        <div class="container">
+            <!-- Section Header -->
+            <div class="contact-header">
+                <div class="contact-hud-label">// OPEN FOR COLLABORATION</div>
+                <h2 class="contact-title">Let's Build <span class="contact-title-accent">Something</span></h2>
+                <p class="contact-subtitle">Have a project in mind? Drop me a message and let's make it happen.</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Left: Info Panel -->
+                <div class="contact-info-panel">
+                    <!-- Status Badge -->
+                    <div class="contact-status-badge">
+                        <span class="contact-status-dot"></span>
+                        Available for new projects
+                    </div>
+
+                    <div class="contact-info-items">
+                        <a href="mailto:noriel.zurc@gmail.com" class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <span class="contact-info-label">Email</span>
+                                <span class="contact-info-value">noriel.zurc@gmail.com</span>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square contact-info-arrow"></i>
+                        </a>
+
+                        <a href="tel:+639052495512" class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <span class="contact-info-label">Phone</span>
+                                <span class="contact-info-value">+63 905 249 5512</span>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square contact-info-arrow"></i>
+                        </a>
+
+                        <div class="contact-info-item no-link">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <span class="contact-info-label">Location</span>
+                                <span class="contact-info-value">Quezon City, Philippines</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="contact-divider"></div>
+
+                    <!-- Social Links -->
+                    <div class="contact-socials">
+                        <span class="contact-socials-label">Find me on</span>
+                        <div class="contact-social-row">
+                            <a href="#" class="contact-social-btn" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="contact-social-btn" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="contact-social-btn" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form Panel -->
+                <div class="contact-form-panel">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="contact-form-row">
+                            <div class="contact-field">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" name="name" placeholder="John Doe" required autocomplete="name">
+                            </div>
+                            <div class="contact-field">
+                                <label for="contact-email">Your Email</label>
+                                <input type="email" id="contact-email" name="email" placeholder="john@example.com" required autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Project Inquiry / Collaboration" required>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Tell me about your project, goals, and timeline..." rows="6" required></textarea>
+                        </div>
+                        <div class="contact-form-footer">
+                            <button type="submit" class="contact-submit-btn" id="contact-submit">
+                                <span class="contact-submit-text">Send Message</span>
+                                <span class="contact-submit-icon"><i class="fas fa-paper-plane"></i></span>
+                                <span class="contact-submit-loading" aria-hidden="true">
+                                    <i class="fas fa-circle-notch fa-spin"></i>
+                                </span>
+                            </button>
+                            <p class="contact-form-note">I typically respond within 24 hours.</p>
+                        </div>
+                        <!-- Success / Error feedback -->
+                        <div class="contact-feedback" id="contact-feedback" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        
+                <div class="work-item" data-index="7">
+                    <div class="work-item-inner">
+                        <span class="work-num">[08]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">PTSI Branch Support Portal</h3>
+                            <span class="work-category">> IT_TICKETING_SYSTEM</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>FULL-STACK + CLOUD</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="IMAGES/works/ptsi_portal/ptsi_portal_1_1779768604237.png" alt="PTSI Branch Support Portal">
+                        <img class="img-color" src="IMAGES/works/ptsi_portal/ptsi_portal_1_1779768604237.png" alt="PTSI Branch Support Portal">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="8">
+                    <div class="work-item-inner">
+                        <span class="work-num">[09]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">LVMH Cloud Service Desk</h3>
+                            <span class="work-category">> ENTERPRISE_TICKETING</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>CLOUD_INFRASTRUCTURE</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" alt="LVMH Cloud Service Desk">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" alt="LVMH Cloud Service Desk">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="9">
+                    <div class="work-item-inner">
+                        <span class="work-num">[10]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Security Incident Response Tracker</h3>
+                            <span class="work-category">> SECURITY_MANAGEMENT</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>CYBERSECURITY</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1510511459019-5d01a80f00ed?auto=format&fit=crop&q=80&w=600" alt="Security Incident Response Tracker">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1510511459019-5d01a80f00ed?auto=format&fit=crop&q=80&w=600" alt="Security Incident Response Tracker">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="10">
+                    <div class="work-item-inner">
+                        <span class="work-num">[11]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">PTSI Medical Supply Inventory</h3>
+                            <span class="work-category">> INVENTORY_SYSTEM</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>ACTIVE</em></span>
+                            <span>STACK: <em>NODEJS + MONGODB</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=600" alt="PTSI Medical Supply Inventory">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=600" alt="PTSI Medical Supply Inventory">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="11">
+                    <div class="work-item-inner">
+                        <span class="work-num">[12]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Global Cloud Asset Manager</h3>
+                            <span class="work-category">> ASSET_MANAGEMENT</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>PYTHON + CLOUD</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600" alt="Global Cloud Asset Manager">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600" alt="Global Cloud Asset Manager">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="12">
+                    <div class="work-item-inner">
+                        <span class="work-num">[13]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Security Hardware Tracking</h3>
+                            <span class="work-category">> HARDWARE_INVENTORY</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>SQL + FULL-STACK</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=600" alt="Security Hardware Tracking">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=600" alt="Security Hardware Tracking">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="13">
+                    <div class="work-item-inner">
+                        <span class="work-num">[14]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">TB Patient Analytics Database</h3>
+                            <span class="work-category">> DATABASE_ANALYTICS</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>DATA_ANALYSIS</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="TB Patient Analytics Database">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="TB Patient Analytics Database">
+                    </div>
+                </div>
+
+                <div class="work-item" data-index="14">
+                    <div class="work-item-inner">
+                        <span class="work-num">[15]</span>
+                        <div class="work-title-wrap">
+                            <h3 class="work-title">Distributed Telemetry DB</h3>
+                            <span class="work-category">> CLOUD_DATABASE</span>
+                        </div>
+                        <div class="work-hud-data">
+                            <span>STATUS: <em>DEPLOYED</em></span>
+                            <span>STACK: <em>SYSTEM_ENGINEERING</em></span>
+                        </div>
+                        <span class="work-arrow">→</span>
+                    </div>
+                    <div class="work-hover-img">
+                        <img class="img-gray" src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?auto=format&fit=crop&q=80&w=600" alt="Distributed Telemetry DB">
+                        <img class="img-color" src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?auto=format&fit=crop&q=80&w=600" alt="Distributed Telemetry DB">
+                    </div>
+                </div>
+</div>
+    </section>    <!-- Project Modal Structure -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">x</button>
+            
+            <div class="modal-visual">
+                <div class="mockup-wrapper">
+                    <div class="mockup-frame">
+                        <img id="modal-main-img" src="" alt="Project Visual" class="modal-main-img">
+                    </div>
+                </div>
+                <div class="modal-gallery" id="modal-gallery">
+                    <!-- Gallery thumbs injected by JS -->
+                </div>
+            </div>
+            
+            <div class="modal-details">
+                <span class="modal-tag">Project</span>
+                <h2 id="modal-title" class="modal-title">PROJECT TITLE</h2>
+                
+                <h4 class="modal-section-title">About</h4>
+                <p id="modal-about" class="modal-about">Description goes here.</p>
+                
+                <a id="modal-launch-link" href="#" target="_blank" class="modal-launch-btn">
+                    Launch Project <i class="fas fa-external-link-alt"></i>
+                </a>
+
+                <div class="modal-nav">
+                    <button class="modal-nav-btn" onclick="prevProject()"><i class="fas fa-arrow-left"></i></button>
+                    <button class="modal-nav-btn" onclick="nextProject()"><i class="fas fa-arrow-right"></i></button>
+                    <span class="modal-counter"><span id="modal-curr-idx">1</span>/<span id="modal-total-count">4</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact reveal">
+        <div class="container">
+            <div class="contact-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                <!-- Left: Info Panel -->
+                <div class="contact-info-panel">
+                    <h2 class="contact-title">Let's Build Something Together</h2>
+                    <p class="contact-desc">Whether it's a massive infrastructure project or an innovative web application, I'm ready to bring your vision to life.</p>
+                    
+                    <div class="contact-status-badge">
+                        <span class="contact-status-dot"></span>
+                        AVAILABLE FOR FREELANCE & CONTRACT
+                    </div>
+
+                    <div class="contact-info-items" style="margin-top: 30px;">
+                        <a href="mailto:contact@example.com" class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-info-text">
+                                <span class="contact-info-label">EMAIL ME</span>
+                                <span class="contact-info-value">contact@example.com</span>
+                            </div>
+                            <i class="fas fa-arrow-right contact-info-arrow" style="margin-left: auto;"></i>
+                        </a>
+                        <div class="contact-divider" style="margin: 15px 0;"></div>
+                        <a href="#" class="contact-info-item no-link">
+                            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-info-text">
+                                <span class="contact-info-label">LOCATION</span>
+                                <span class="contact-info-value">Metro Manila, Philippines</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="contact-socials" style="margin-top: 30px;">
+                        <span class="contact-socials-label">SOCIAL PROTOCOLS</span>
+                        <div class="contact-social-row" style="margin-top: 10px;">
+                            <a href="#" class="contact-social-btn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="contact-social-btn"><i class="fab fa-github"></i></a>
+                            <a href="#" class="contact-social-btn"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form Panel -->
+                <div class="contact-form-panel">
+                    <form id="contact-form" class="contact-form">
+                        <div class="contact-form-row">
+                            <div class="contact-field">
+                                <label for="contact-name">NAME / ID</label>
+                                <input type="text" id="contact-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="contact-field">
+                                <label for="contact-email">COMM-LINK (EMAIL)</label>
+                                <input type="email" id="contact-email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="contact-field" style="margin-top: 20px;">
+                            <label for="contact-message">TRANSMISSION (MESSAGE)</label>
+                            <textarea id="contact-message" rows="5" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        
+                        <div class="contact-form-footer" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <button type="submit" id="contact-submit" class="contact-submit-btn">
+                                <span class="contact-submit-text">INITIATE TRANSMISSION</span>
+                                <span class="contact-submit-icon"><i class="fas fa-paper-plane"></i></span>
+                                <span class="contact-submit-loading"><i class="fas fa-spinner fa-spin"></i></span>
+                            </button>
+                            <span class="contact-form-note">Encrypted & Secure</span>
+                        </div>
+                        <div id="contact-feedback" class="contact-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; padding: 40px 0; border-top: 1px solid #222; margin-top: 40px;">
+                <p class="footer-text">&copy; 2026 Full Stack Developer. All systems nominal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
