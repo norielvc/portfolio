@@ -1061,6 +1061,9 @@ function closeWorkView() {
 let svcCarouselIndex = 0;
 const SVC_CARDS_PER_VIEW = 3; // cards visible at once
 
+// Recalculate on resize
+window.addEventListener('resize', () => { _applySvcCarousel(); });
+
 function openServicesView() {
     const cover  = document.getElementById('services-cover');
     const detail = document.getElementById('services-detail');
@@ -1119,11 +1122,20 @@ function _applySvcCarousel() {
     const isMobile = window.innerWidth <= 968;
     const cardsPerView = isMobile ? 1 : SVC_CARDS_PER_VIEW;
     const viewport = grid.parentElement; // .svc-carousel-viewport
-    const viewportWidth = viewport.offsetWidth;
-    const cardWidth = isMobile ? viewportWidth : viewportWidth / cardsPerView;
     const gap = isMobile ? 0 : 24;
-    const offset = svcCarouselIndex * (cardWidth + gap);
 
+    // Set each card width explicitly so JS and CSS always agree
+    const viewportWidth = viewport.offsetWidth;
+    const cardWidth = isMobile
+        ? viewportWidth
+        : (viewportWidth - gap * (cardsPerView - 1)) / cardsPerView;
+
+    Array.from(grid.children).forEach(card => {
+        card.style.flex = `0 0 ${cardWidth}px`;
+        card.style.width = `${cardWidth}px`;
+    });
+
+    const offset = svcCarouselIndex * (cardWidth + gap);
     grid.style.transform = `translateX(-${offset}px)`;
 
     // Update nav button states

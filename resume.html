@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Niño Noriel V. Cruz — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-page:      #ffffff;
+    --bg-sidebar:   #f2f2f2;
+    --bg-card:      #ebebeb;
+    --border:       #dedede;
+    --text-primary:   #111111;
+    --text-secondary: #444444;
+    --text-muted:     #777777;
+    --text-label:     #aaaaaa;
+    --bar-track:    #d8d8d8;
+    --bar-fill:     #111111;
+    --tag-border:   #cccccc;
+    --tag-text:     #555555;
+  }
+
+  html, body {
+    background: #c8c8c8;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-primary);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── A4 PAGE — exact 297mm, no overflow ── */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 24px auto;
+    background: var(--bg-page);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+  }
+
+  /* dot grid */
+  .page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #c8c8c8 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* top accent */
+  .page::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #111;
+    z-index: 3;
+  }
+
+  /* two-column grid that fills exactly 297mm */
+  .page-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 64mm 1fr;
+    height: 297mm;
+  }
+
+  /* ══════════════ SIDEBAR ══════════════ */
+  .sidebar {
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 28px 18px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* distribute sidebar sections evenly */
+  .sidebar > * { flex-shrink: 0; }
+  .sidebar-spacer { flex: 1; }
+
+  .name-block {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+  .sys-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 6.5px;
+    letter-spacing: 0.2em;
+    color: var(--text-label);
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .name-block h1 {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+  .role-title {
+    font-family: 'Courier Prime', monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .s-section {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 14px;
+  }
+  .s-title {
+    font-family: 'Courier Prime', monospace;
+    font-size: 6.5px;
+    letter-spacing: 0.2em;
+    color: var(--text-label);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    margin-bottom: 2px;
+  }
+
+  .c-item { display: flex; flex-direction: column; gap: 1px; margin-bottom: 5px; }
+  .c-item:last-child { margin-bottom: 0; }
+  .c-lbl {
+    font-family: 'Courier Prime', monospace;
+    font-size: 5.5px;
+    letter-spacing: 0.14em;
+    color: var(--text-label);
+    text-transform: uppercase;
+  }
+  .c-val {
+    font-size: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+    word-break: break-all;
+  }
+
+  .skill-item { display: flex; flex-direction: column; gap: 3px; margin-bottom: 6px; }
+  .skill-item:last-child { margin-bottom: 0; }
+  .skill-row { display: flex; justify-content: space-between; align-items: center; }
+  .sk-name { font-size: 7.5px; font-weight: 500; color: var(--text-primary); }
+  .sk-lvl {
+    font-family: 'Courier Prime', monospace;
+    font-size: 6px;
+    color: var(--text-muted);
+  }
+  .skill-bar { height: 2px; background: var(--bar-track); border-radius: 2px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: var(--bar-fill); border-radius: 2px; }
+
+  .tag-group { display: flex; flex-wrap: wrap; gap: 3px; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 6px;
+    letter-spacing: 0.05em;
+    padding: 2px 5px;
+    border: 1px solid var(--tag-border);
+    border-radius: 2px;
+    color: var(--tag-text);
+    background: var(--bg-page);
+    white-space: nowrap;
+  }
+
+  /* ══════════════ MAIN ══════════════ */
+  .main {
+    padding: 28px 24px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .m-section { display: flex; flex-direction: column; gap: 9px; margin-bottom: 16px; }
+  .m-section:last-child { margin-bottom: 0; flex: 1; }
+
+  .m-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 6.5px;
+    letter-spacing: 0.2em;
+    color: var(--text-label);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .m-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .profile-text {
+    font-size: 8px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .profile-text strong { color: var(--text-primary); font-weight: 600; }
+
+  /* experience */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 10px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .exp-role {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    grid-column: 1;
+  }
+  .exp-date {
+    font-family: 'Courier Prime', monospace;
+    font-size: 6.5px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    padding-top: 1px;
+  }
+  .exp-company {
+    font-size: 7.5px;
+    color: var(--text-secondary);
+    grid-column: 1 / -1;
+  }
+  .exp-company em {
+    font-style: normal;
+    color: var(--text-muted);
+    font-size: 7px;
+  }
+  .exp-bullets {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 8px;
+  }
+  .exp-bullets li {
+    font-size: 7px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    list-style: none;
+    position: relative;
+    padding-left: 8px;
+  }
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+
+  /* projects — fills remaining space */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    flex: 1;
+    align-content: stretch;
+  }
+  .proj-card {
+    border: 1px solid var(--border);
+    padding: 8px 9px;
+    border-radius: 3px;
+    background: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+  }
+  .proj-name {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+  }
+  .proj-desc {
+    font-size: 7px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .proj-stack {
+    font-family: 'Courier Prime', monospace;
+    font-size: 6px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    letter-spacing: 0.04em;
+  }
+
+  /* footer pinned to bottom */
+  .cv-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    right: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+    z-index: 2;
+  }
+  .cv-footer span {
+    font-family: 'Courier Prime', monospace;
+    font-size: 5.5px;
+    color: var(--text-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    html, body { background: #fff; margin: 0; }
+    .page { margin: 0; box-shadow: none; width: 210mm; height: 297mm; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-inner">
+
+    <!-- ══ SIDEBAR ══ -->
+    <aside class="sidebar">
+
+      <div class="name-block">
+        <div class="sys-label">// Curriculum Vitae</div>
+        <h1>Niño Noriel<br>V. Cruz</h1>
+        <div class="role-title">Full Stack · AI · Automation</div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Contact</div>
+        <div class="c-item"><span class="c-lbl">Email</span><span class="c-val">noriel.zurc@gmail.com</span></div>
+        <div class="c-item"><span class="c-lbl">Phone</span><span class="c-val">0905 249 5512</span></div>
+        <div class="c-item"><span class="c-lbl">Location</span><span class="c-val">Calumpit, Bulacan &amp; Quezon City</span></div>
+        <div class="c-item"><span class="c-lbl">Portfolio</span><span class="c-val">norielvc.info</span></div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Core Skills</div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">Full Stack Dev</span><span class="sk-lvl">Expert</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">AI &amp; Automation</span><span class="sk-lvl">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">Cloud &amp; Infra</span><span class="sk-lvl">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">Data Analysis</span><span class="sk-lvl">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">Cybersecurity</span><span class="sk-lvl">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">UI/UX Design</span><span class="sk-lvl">Proficient</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="sk-name">Graphic Design</span><span class="sk-lvl">Expert</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Frontend</div>
+        <div class="tag-group">
+          <span class="tag">React</span><span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span><span class="tag">JavaScript ES6+</span>
+          <span class="tag">TailwindCSS</span>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Backend &amp; Data</div>
+        <div class="tag-group">
+          <span class="tag">Node.js</span><span class="tag">Python</span>
+          <span class="tag">MongoDB</span><span class="tag">SQL</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Tools &amp; Design</div>
+        <div class="tag-group">
+          <span class="tag">Photoshop</span><span class="tag">Illustrator</span>
+          <span class="tag">After Effects</span><span class="tag">Premiere Pro</span>
+          <span class="tag">Adobe XD</span><span class="tag">CorelDRAW</span>
+          <span class="tag">Figma</span>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Leadership</div>
+        <div class="tag-group">
+          <span class="tag">Team Leadership</span><span class="tag">IT Project Mgmt</span>
+          <span class="tag">Brand Strategy</span><span class="tag">Client Relations</span>
+        </div>
+      </div>
+
+      <div class="sidebar-spacer"></div>
+
+    </aside>
+
+    <!-- ══ MAIN ══ -->
+    <main class="main">
+
+      <div class="m-section">
+        <div class="m-title">Profile</div>
+        <p class="profile-text">
+          AI-powered full stack developer with <strong>12+ years</strong> across IT engineering, cloud infrastructure, security systems, and software development. I build systems that <strong>think, automate, and scale</strong> — delivering enterprise-grade solutions for government agencies, multinational corporations, and startups.
+        </p>
+      </div>
+
+      <div class="m-section">
+        <div class="m-title">Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-role">Software Engineer &amp; Data Analyst</div>
+          <div class="exp-date">2025 – Present</div>
+          <div class="exp-company">Philippine Tuberculosis Society Inc.<em> — IT Operations &amp; Branch Support Specialist</em></div>
+          <ul class="exp-bullets">
+            <li>Engineered and deployed an automated data analysis pipeline, reducing manual reporting time and improving data accuracy.</li>
+            <li>Maintained and scaled IT branch support systems, ensuring 99.9% uptime across critical infrastructure.</li>
+            <li>Developed custom software solutions to streamline daily operations and enhance technology workflows.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Senior System Engineer</div>
+          <div class="exp-date">2020 – 2024</div>
+          <div class="exp-company">Cloudterrain Philippines Inc.<em> — Client: Moët Hennessy Louis Vuitton (LVMH)</em></div>
+          <ul class="exp-bullets">
+            <li>Architected enterprise-scale cloud solutions, optimizing system performance and reducing infrastructure costs.</li>
+            <li>Spearheaded technical deployment projects ensuring zero downtime for mission-critical client services.</li>
+            <li>Managed and secured cloud-based architectures with robust security protocols and monitoring systems.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Lead Security System Engineer</div>
+          <div class="exp-date">2014 – 2019</div>
+          <div class="exp-company">IBEST &amp; Calvelo Engineered Systems Corporation<em> — Client: Lopez Group of Companies</em></div>
+          <ul class="exp-bullets">
+            <li>Directed engineering team to design and deploy enterprise-grade physical and digital security frameworks.</li>
+            <li>Managed comprehensive infrastructure for Rockwell Business Center with strict enterprise security compliance.</li>
+            <li>Executed complex technical integrations that modernized legacy systems and improved operational security.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Freelance Graphic Designer &amp; Brand Specialist</div>
+          <div class="exp-date">2013 – Present</div>
+          <div class="exp-company">Self-Employed / Prime Solutions Enterprise</div>
+          <ul class="exp-bullets">
+            <li>Designed high-impact visual identities, digital assets, and print media for diverse client portfolios.</li>
+            <li>Translated business goals into cohesive brand marketing materials for direct stakeholder collaboration.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="m-section">
+        <div class="m-title">Key Projects</div>
+        <div class="projects-grid">
+          <div class="proj-card">
+            <div class="proj-name">SaaS — BrgyDesk</div>
+            <div class="proj-desc">Community management platform for LGUs with automated document processing and real-time admin dashboards.</div>
+            <div class="proj-stack">AI · Full Stack · Node.js · MongoDB</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">Time Logger System</div>
+            <div class="proj-desc">Enterprise HR attendance tracking with live TB patient monitoring and real-time branch visibility.</div>
+            <div class="proj-stack">AI · Automation · Python · SQL</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">Company Intranet</div>
+            <div class="proj-desc">Secure internal ecosystem centralizing tools, announcements, and workflows organization-wide.</div>
+            <div class="proj-stack">Full Stack · React · Node.js</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">Paperless Automation</div>
+            <div class="proj-desc">Digital workflow system eliminating paper — every request, approval, and process fully automated.</div>
+            <div class="proj-stack">AI · Automation · Cloud</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">Live Count System</div>
+            <div class="proj-desc">Real-time analytics and live tracking platform with instant data visibility across branch operations.</div>
+            <div class="proj-stack">AI · Full Stack · WebSockets</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">PTSI Branch Portal</div>
+            <div class="proj-desc">IT ticketing and branch support portal with cloud-based infrastructure for nationwide management.</div>
+            <div class="proj-stack">Full Stack · Cloud · Docker</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">LVMH Cloud Service Desk</div>
+            <div class="proj-desc">Enterprise cloud service desk for LVMH handling mission-critical ticketing and infrastructure monitoring.</div>
+            <div class="proj-stack">Cloud Infrastructure · ITSM · Security</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">PTSI Corporate Website</div>
+            <div class="proj-desc">Full corporate digital presence with dynamic content management and nationwide branch directory.</div>
+            <div class="proj-stack">Full Stack · CMS · React</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">Security Incident Tracker</div>
+            <div class="proj-desc">Cybersecurity incident response system for enterprise security operations at Rockwell Business Center.</div>
+            <div class="proj-stack">Cybersecurity · Node.js · SQL</div>
+          </div>
+          <div class="proj-card">
+            <div class="proj-name">TB Patient Analytics DB</div>
+            <div class="proj-desc">Automated data analysis pipeline and patient records database with real-time reporting accuracy.</div>
+            <div class="proj-stack">Python · Data Analysis · SQL</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="cv-footer">
+    <span>// Niño Noriel V. Cruz — Curriculum Vitae</span>
+    <span>noriel.zurc@gmail.com · 0905 249 5512</span>
+    <span>norielvc.info</span>
+  </div>
+
+</div>
+</body>
+</html>
