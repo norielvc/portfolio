@@ -3300,6 +3300,34 @@ section#about {
     text-align: center;
 }
 
+.resume-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-download-btn:hover {
+    background: #222222;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.resume-download-btn i {
+    font-size: 0.85rem;
+}
+
 /* ─── Contact Section ──────────────────────────────────── */
 .contact {
     background: #0d0d0d;
@@ -3349,6 +3377,14 @@ section#about {
     line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: 14px;
+}
+
+.contact-desc {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.85;
 }
 
 .contact-title-accent {
