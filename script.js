@@ -875,7 +875,8 @@ const loveTitles = [
     "CONTINUOUS LEARNING",
     "GAME OF THRONES",
     "COLLABORATION",
-    "GOOD FOOD",
+    "CHICKEN ADOBO",
+    "SPICY FOOD",
     "TRAVELING",
     "MUSIC"
 ];
@@ -914,7 +915,13 @@ function updateLoveCarousel() {
         }
     });
     
-    titleEl.textContent = `I LOVE ${loveTitles[currentLoveIdx]}`;
+    titleEl.style.opacity = '0';
+    titleEl.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+        titleEl.textContent = `I LOVE ${loveTitles[currentLoveIdx]}`;
+        titleEl.style.opacity = '1';
+        titleEl.style.transform = 'translateY(0)';
+    }, 150);
 }
 
 function prevLoveItem() {
