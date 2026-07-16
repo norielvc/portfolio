@@ -104,7 +104,7 @@ module.exports = async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    transporter.sendMail(autoReply);
+    await transporter.sendMail(autoReply);
 
     return res.status(200).json({ success: true });
   } catch (err) {

@@ -128,9 +128,10 @@ http.createServer((req, res) => {
           res.writeHead(500, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ success: false, error: err.message }));
         } else {
-          transporter.sendMail(autoReply);
-          res.writeHead(200, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ success: true }));
+          transporter.sendMail(autoReply, (replyErr) => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true }));
+          });
         }
       });
     } catch (e) {
