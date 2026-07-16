@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/send-email.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "rewrites": [
+    { "source": "/send-email", "destination": "/api/send-email" }
+  ]
+}
