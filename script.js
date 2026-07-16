@@ -67,7 +67,7 @@ if (hamburger && navMenu) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href === '#') return; // Skip links that are just '#'
+        if (!href || href === '#' || !href.startsWith('#')) return; // Skip '#' and non-anchor links (href may change after load)
         
         e.preventDefault();
         const target = document.querySelector(href);
@@ -208,26 +208,43 @@ if (contactForm) {
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
-        // Simulate send (replace with real fetch/EmailJS/etc.)
-        setTimeout(() => {
+        fetch('/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                message: document.getElementById('contact-message').value
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
             submitBtn.classList.remove('loading');
-            submitBtn.classList.add('sent');
-            submitBtn.querySelector('.contact-submit-text').textContent = 'Message Sent!';
-            submitBtn.querySelector('.contact-submit-icon').innerHTML = '<i class="fas fa-check"></i>';
-
-            feedback.className = 'contact-feedback success';
-            feedback.textContent = '✓ Your message has been sent. I\'ll get back to you within 24 hours.';
-
-            contactForm.reset();
-
-            // Reset button after a few seconds
+            if (data.success) {
+                submitBtn.classList.add('sent');
+                submitBtn.querySelector('.contact-submit-text').textContent = 'Message Sent!';
+                submitBtn.querySelector('.contact-submit-icon').innerHTML = '<i class="fas fa-check"></i>';
+                feedback.className = 'contact-feedback success';
+                feedback.textContent = '✓ Your message has been sent. I\'ll get back to you within 24 hours.';
+                contactForm.reset();
+            } else {
+                submitBtn.disabled = false;
+                feedback.className = 'contact-feedback error';
+                feedback.textContent = 'Failed to send message. Please try again or email directly.';
+            }
             setTimeout(() => {
                 submitBtn.classList.remove('sent');
                 submitBtn.disabled = false;
                 submitBtn.querySelector('.contact-submit-text').textContent = 'Send Message';
                 submitBtn.querySelector('.contact-submit-icon').innerHTML = '<i class="fas fa-paper-plane"></i>';
             }, 4000);
-        }, 1800);
+        })
+        .catch(() => {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            feedback.className = 'contact-feedback error';
+            feedback.textContent = 'Network error. Please try again or email directly.';
+        });
     });
 
     // Remove error state on input
@@ -243,8 +260,9 @@ function initTyping() {
 
     const titles = [
         'Full Stack Developer',
-        'Web Developer',
         'AI-Powered Developer',
+        'GIS Mapping Specialist',
+        'Security Engineer',
         'Business Solutions Expert'
     ];
     
@@ -343,12 +361,20 @@ if ('IntersectionObserver' in window) {
 // Project Modal Logic
 const projectsData = [
     {
+        title: "FaceTraq",
+        about: "AI-powered facial recognition attendance platform. Features kiosk mode with webcam capture, mobile GPS-verified check-in, and a full admin dashboard with live records, HRIS integration, and payroll connectivity. No cards, no PINs — just look and you're in.",
+        image: "IMAGES/works/facetraq/facetraq_1.png",
+        images: ["IMAGES/works/facetraq/facetraq_1.png", "IMAGES/works/facetraq/facetraq_2.png", "IMAGES/works/facetraq/facetraq_3.png"],
+        bg: "IMAGES/works/facetraq/facetraq_1.png",
+        link: "https://facetraq.vercel.app/"
+    },
+    {
         title: "SaaS (brgyDesk)",
         about: "A comprehensive community management platform designed for local government units. Features automated document processing, resident records management, and real-time administrative dashboards.",
         image: "IMAGES/works/SaaS/0.png",
         images: ["IMAGES/works/SaaS/0.png", "IMAGES/works/SaaS/1.png", "IMAGES/works/SaaS/2.png", "IMAGES/works/SaaS/3.png", "IMAGES/works/SaaS/4.png", "IMAGES/works/SaaS/5.png"],
         bg: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1600",
-        link: "#"
+        link: "https://brgydesk.vercel.app/"
     },
     {
         title: "Time Logger System",
@@ -356,7 +382,15 @@ const projectsData = [
         image: "IMAGES/works/timelogger/1.png",
         images: ["IMAGES/works/timelogger/1.png", "IMAGES/works/timelogger/2.png"],
         bg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600",
-        link: "#"
+        link: "https://www.philtbsociety.org/timelogger/login"
+    },
+    {
+        title: "HRTD Community Map",
+        about: "GIS-powered public health mapping platform for PTSI. Visualizes tuberculosis case notification rates, informal settler densities, and mining community vulnerability across Quezon City and Benguet Province using georeferenced data and epidemiological models.",
+        image: "IMAGES/works/hrtd/hrtd_1.png",
+        images: ["IMAGES/works/hrtd/hrtd_1.png", "IMAGES/works/hrtd/hrtd_2.png", "IMAGES/works/hrtd/hrtd_3.png"],
+        bg: "IMAGES/works/hrtd/hrtd_1.png",
+        link: "https://hrtd-communitymap.vercel.app/"
     },
     {
         title: "PTSI Website",
@@ -364,7 +398,7 @@ const projectsData = [
         image: "IMAGES/works/ptsi/1.png",
         images: ["IMAGES/works/ptsi/1.png", "IMAGES/works/ptsi/2.png", "IMAGES/works/ptsi/3.png", "IMAGES/works/ptsi/4.png", "IMAGES/works/ptsi/5.png"],
         bg: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-        link: "#"
+        link: "https://www.philtbsociety.org/"
     },
     {
         title: "COCOSTUDIO Website",
@@ -376,7 +410,7 @@ const projectsData = [
             "IMAGES/works/cocostudio/cocostudio_3.png"
         ],
         bg: "IMAGES/works/cocostudio/cocostudio_1.png",
-        link: "https://www.cocostudio.ph"
+        link: "https://www.cocostudio.ph/"
     },
     {
         title: "Company Intranet",
@@ -407,29 +441,10 @@ const projectsData = [
         about: "Real-time monitoring system featuring live count dashboards, asset tracking, and predictive analytics for operational logistics and security monitoring.",
         image: "IMAGES/works/livetracking/live1.png",
         images: [
-            "IMAGES/works/livetracking/live1.png",
-            "IMAGES/works/livetracking/live2.png",
-            "IMAGES/works/livetracking/live3.png"
+            "IMAGES/works/livetracking/live1.png"
         ],
         bg: "IMAGES/works/livetracking/live1.png",
-        link: "#"
-    }
-,
-    {
-        title: "PTSI Branch Support Portal",
-        about: "A ticketing system for branch IT support requests within the Philippine Tuberculosis Society, designed to streamline issue resolution and minimize downtime across nationwide clinics.",
-        image: "IMAGES/works/ptsi_portal/ptsi_portal_1_1779768604237.png",
-        images: ["IMAGES/works/ptsi_portal/ptsi_portal_1_1779768604237.png", "IMAGES/works/ptsi_portal/ptsi_portal_2_1779768784774.png", "IMAGES/works/ptsi_portal/ptsi_portal_3_1779768907747.png"],
-        bg: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600",
-        link: "#"
-    },
-    {
-        title: "LVMH Cloud Service Desk",
-        about: "An enterprise ticketing platform for cloud infrastructure issues, serving LVMH global operations. Features automated routing and SLA tracking for zero-downtime mission-critical services.",
-        image: "IMAGES/works/lvmh/lvmh1.png",
-        images: ["IMAGES/works/lvmh/lvmh1.png"],
-        bg: "IMAGES/works/lvmh/lvmh1.png",
-        link: "#"
+        link: "https://ptsilivecount.vercel.app/"
     },
     {
         title: "Security Incident Response Tracker",
@@ -442,18 +457,31 @@ const projectsData = [
         ],
         bg: "IMAGES/works/ticketing/ticket1.png",
         link: "#"
-    },
-    {
-        title: "TB Patient Analytics Database",
-        about: "A secure, HIPAA-compliant database platform built for PTSI to aggregate patient data, visualize treatment pipelines, and accelerate reporting workflows.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-        images: ["https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"],
-        bg: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600",
-        link: "#"
     }
 ];
 
 let currentProjIdx = 0;
+let currentImageIdx = 0;
+
+function showImage(idx) {
+    const data = projectsData[currentProjIdx];
+    const imgs = data.images || [data.image];
+    if (imgs.length <= 1) return;
+    currentImageIdx = (idx + imgs.length) % imgs.length;
+    const mainImg = document.getElementById('modal-main-img');
+    const gallery = document.getElementById('modal-gallery');
+    mainImg.classList.add('switching');
+    setTimeout(() => {
+        mainImg.src = imgs[currentImageIdx];
+        mainImg.onload = () => mainImg.classList.remove('switching');
+        setTimeout(() => mainImg.classList.remove('switching'), 600);
+        if (gallery) {
+            gallery.querySelectorAll('.modal-thumb').forEach((t, i) => {
+                t.classList.toggle('active', i === currentImageIdx);
+            });
+        }
+    }, 200);
+}
 
 function openProjectModal(idx) {
     currentProjIdx = idx;
@@ -471,12 +499,20 @@ function closeProjectModal() {
 
 function updateModalContent() {
     const data = projectsData[currentProjIdx];
+    currentImageIdx = 0;
     document.getElementById('modal-title').textContent = data.title;
     document.getElementById('modal-about').textContent = data.about;
     document.getElementById('modal-main-img').src = data.image;
     document.getElementById('modal-launch-link').href = data.link;
     document.getElementById('modal-curr-idx').textContent = currentProjIdx + 1;
     document.getElementById('modal-total-count').textContent = projectsData.length;
+
+    // Hide arrows if only one image
+    const imgs = data.images || [data.image];
+    const prevBtn = document.getElementById('modal-slide-prev');
+    const nextBtn = document.getElementById('modal-slide-next');
+    if (prevBtn) prevBtn.classList.toggle('hidden', imgs.length <= 1);
+    if (nextBtn) nextBtn.classList.toggle('hidden', imgs.length <= 1);
 
     // Set dynamic background photo on modal visual
     const modalVisual = document.querySelector('.modal-visual');
@@ -496,21 +532,19 @@ function updateModalContent() {
             thumb.src = src;
             thumb.alt = `${data.title} screenshot ${i + 1}`;
             thumb.className = 'modal-thumb' + (i === 0 ? ' active' : '');
-            thumb.onclick = () => {
-                const mainImg = document.getElementById('modal-main-img');
-                mainImg.classList.add('switching');
-                setTimeout(() => {
-                    mainImg.src = src;
-                    mainImg.onload = () => mainImg.classList.remove('switching');
-                    setTimeout(() => mainImg.classList.remove('switching'), 600);
-                    gallery.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                }, 200);
-            };
+            thumb.onclick = () => showImage(i);
             gallery.appendChild(thumb);
         });
     }
 }
+
+// Slideshow arrow listeners
+document.addEventListener('DOMContentLoaded', () => {
+    const prevBtn = document.getElementById('modal-slide-prev');
+    const nextBtn = document.getElementById('modal-slide-next');
+    if (prevBtn) prevBtn.addEventListener('click', () => showImage(currentImageIdx - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => showImage(currentImageIdx + 1));
+});
 
 function animateModalSwitch() {
     const content = document.querySelector('.modal-content');
@@ -747,7 +781,6 @@ console.log('Portfolio loaded successfully!');
     }
 
     initFixedCyborgGaze('resume-cyborg-fixed');
-    initFixedCyborgGaze('projects-cyborg-fixed');
 
 })();
 
@@ -983,28 +1016,28 @@ function closeCoreView() {
 let currentWorkSlideIdx = 0;
 const workSlides = [
     {
-        title: "NEW MEDIA",
-        desc: "My work crosses a broad range of categories in the digital space, both from a design and a technical perspective. I believe in using the right tools for the job.",
+        title: "FRONTEND",
+        desc: "Building responsive, visually sharp websites and web apps — from corporate profiles and portfolios to SaaS dashboards. Designed to impress, built to convert, optimized for performance.",
         activeBar: 0
     },
     {
         title: "SYSTEMS",
-        desc: "Building robust backend microservices, automations, and APIs that scale. I enjoy designing architectures that can handle heavy lifting reliably.",
+        desc: "Architecting robust backend systems, real-time dashboards, and GIS platforms that scale. From live tracking systems to community mapping tools — I design architectures that handle heavy lifting reliably.",
         activeBar: 1
     },
     {
         title: "DATABASES",
-        desc: "Structuring efficient database schemas, query optimization, and secure data pipelines. Clean data relations are the bedrock of any solid application.",
+        desc: "Structuring efficient database schemas, query optimization, and secure data pipelines. Working with MongoDB, SQL, Supabase, and georeferenced GIS data to build clean, scalable data foundations.",
         activeBar: 2
     },
     {
         title: "SECURITY",
-        desc: "Implementing secure authentication mechanisms, threat modeling, and strict access controls to protect user data and resources.",
+        desc: "Enterprise-grade CCTV design and installation, access control frameworks, and cybersecurity incident response. From IndigoVision and Avigilon deployments to threat modeling and strict access controls.",
         activeBar: 3
     },
     {
         title: "AUTOMATION",
-        desc: "Writing scripts and schedulers to eliminate manual overhead. Streamlining deployment pipelines and local environment configurations.",
+        desc: "AI-powered automation and paperless workflow systems that eliminate manual overhead. From digital approval pipelines to automated reporting — streamlining operations so teams can focus on what matters.",
         activeBar: 4
     }
 ];
@@ -1159,10 +1192,10 @@ function _applySvcCarousel() {
 
 (function () {
     const quotes = [
-        '"I built a live TB patient tracking system and an HR attendance logger — giving organizations real-time visibility they never had before."',
+        '"I built FaceTraq — an AI facial recognition attendance platform. No cards, no PINs, just look and you\'re in. Kiosk mode, mobile GPS check-in, HRIS integration."',
         '"I built a full company intranet — centralizing internal tools, announcements, and workflows into one secure, organization-wide platform."',
         '"I launched a Barangay SaaS platform — residents request certificates online, officials process them digitally, billed monthly. Government, modernized."',
-        '"I design and build interactive, professional websites — crafted to impress, convert, and represent your brand at its best."',
+        '"I launched a GIS public health mapping platform — visualizing TB case notification rates and vulnerability indices across Quezon City and Benguet Province."',
         '"I eliminated paper entirely — every internal request, approval, and workflow is now fully digital, automated, and trackable in real time."',
         '"I am your AI expert — tell me what you need and I\'ll build it. Faster delivery, smarter systems, and results that actually move your business forward."'
     ];
@@ -1496,8 +1529,7 @@ function _applySvcCarousel() {
     }
 
     const pairs = [
-        { sectionId: 'resume',   cyborgId: 'resume-cyborg-fixed' },
-        { sectionId: 'projects', cyborgId: 'projects-cyborg-fixed' }
+        { sectionId: 'resume',   cyborgId: 'resume-cyborg-fixed' }
     ];
 
     // Sections that should HIDE the cyborg when they are in view
@@ -1542,4 +1574,27 @@ function _applySvcCarousel() {
     } else {
         init();
     }
+})();
+
+// ── Fixed Cyborg Panels — fly to the left when cursor is on the right half ───
+
+(function () {
+    const cyborgs = ['resume-cyborg-fixed']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+    if (!cyborgs.length) return;
+
+    let dodged = false;
+
+    window.addEventListener('mousemove', (e) => {
+        const ratio = e.clientX / window.innerWidth;
+        // Hysteresis: dodge left past 55%, return right below 45% (prevents flicker)
+        if (!dodged && ratio > 0.55) {
+            dodged = true;
+            cyborgs.forEach(c => c.classList.add('dodge-left'));
+        } else if (dodged && ratio < 0.45) {
+            dodged = false;
+            cyborgs.forEach(c => c.classList.remove('dodge-left'));
+        }
+    }, { passive: true });
 })();
