@@ -2,9 +2,10 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const { buildResumeDocxBuffer } = require('./lib/resume-docx');
 require('dotenv').config();
-const port = 3001;
-const mimeTypes = { '.html':'text/html','.css':'text/css','.js':'application/javascript','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.gif':'image/gif','.svg':'image/svg+xml','.ico':'image/x-icon','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.eot':'application/vnd.ms-fontobject','.json':'application/json','.pdf':'application/pdf','.mp4':'video/mp4' };
+const port = Number(process.env.PORT) || 3001;
+const mimeTypes = { '.html':'text/html','.css':'text/css','.js':'application/javascript','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.gif':'image/gif','.svg':'image/svg+xml','.ico':'image/x-icon','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.eot':'application/vnd.ms-fontobject','.json':'application/json','.pdf':'application/pdf','.mp4':'video/mp4','.docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document' };
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -16,6 +17,30 @@ const transporter = nodemailer.createTransport({
 
 http.createServer((req, res) => {
   let p = req.url.split('?')[0];
+  try {
+    p = decodeURIComponent(p);
+  } catch {
+    res.writeHead(400);
+    res.end('Bad request');
+    return;
+  }
+
+  if (req.method === 'GET' && (p === '/resume.docx' || p === '/api/resume.docx')) {
+    buildResumeDocxBuffer()
+      .then((buffer) => {
+        res.writeHead(200, {
+          'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'Content-Disposition': 'attachment; filename="Nino_Noriel_V_Cruz_Resume.docx"',
+        });
+        res.end(Buffer.from(buffer));
+      })
+      .catch((err) => {
+        console.error('resume.docx:', err);
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.end('Could not generate Word document.');
+      });
+    return;
+  }
 
   if (req.method === 'POST' && p === '/send-email') {
     let body = '';

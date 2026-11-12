@@ -361,6 +361,46 @@ if ('IntersectionObserver' in window) {
 // Project Modal Logic
 const projectsData = [
     {
+        title: "Public Barangay Portal",
+        about: "Public barangay portal for Barangay Iba O' Este in Calumpit, Bulacan. Residents read announcements, open online services, and request help from phone or tablet. Live on BrgyDesk at ibaoeste.brgydesk.com.",
+        image: "IMAGES/works/ibaoeste/mobile-iPhone_17_Pro_Max-full.png",
+        images: [
+            "IMAGES/works/ibaoeste/mobile-iPhone_17_Pro_Max-full.png",
+            "IMAGES/works/ibaoeste/mobile-iPhone_17_Pro_Max-full (1).png",
+            "IMAGES/works/ibaoeste/mobile-iPad_Air-full.png",
+            "IMAGES/works/ibaoeste/mobile-iPad_Air-full (1).png",
+            "IMAGES/works/ibaoeste/mobile-iPad_Air-full (2).png"
+        ],
+        bg: "IMAGES/works/ibaoeste/mobile-iPhone_17_Pro_Max-full.png",
+        link: "https://ibaoeste.brgydesk.com/"
+    },
+    {
+        title: "Pickleball Club Court Booking System",
+        about: "Full automation court booking platform for a pickleball club. Members reserve courts online, see real-time availability, and manage schedules end to end — replacing manual booking with a streamlined web experience on phone and tablet.",
+        image: "IMAGES/works/pckleball/mobile-iPhone_17_Pro_Max-full.png",
+        images: [
+            "IMAGES/works/pckleball/mobile-iPhone_17_Pro_Max-full.png",
+            "IMAGES/works/pckleball/mobile-iPhone_17_Pro_Max-alt1.png",
+            "IMAGES/works/pckleball/mobile-iPhone_17_Pro_Max-alt2.png",
+            "IMAGES/works/pckleball/mobile-iPad_Air-full.png",
+            "IMAGES/works/pckleball/mobile-iPad_Air-alt.png"
+        ],
+        bg: "IMAGES/works/pckleball/mobile-iPhone_17_Pro_Max-full.png",
+        link: "https://pcklball-bookingsystem.vercel.app/"
+    },
+    {
+        title: "EM-Card",
+        about: "Public website and citizen portal management platform for Balagtas residents. Gives citizens digital access to LGU services, resident-facing tools, and an admin-backed portal designed for everyday municipal use on phone and tablet.",
+        image: "IMAGES/works/EMcard/mobile-iPhone_17_Pro_Max-full.png",
+        images: [
+            "IMAGES/works/EMcard/mobile-iPhone_17_Pro_Max-full.png",
+            "IMAGES/works/EMcard/mobile-Galaxy_Tab_S7-full.png",
+            "IMAGES/works/EMcard/mobile-Galaxy_Tab_S7-alt.png"
+        ],
+        bg: "IMAGES/works/EMcard/mobile-iPhone_17_Pro_Max-full.png",
+        link: "https://www.em-card.com/"
+    },
+    {
         title: "FaceTraq",
         about: "AI-powered facial recognition attendance platform. Features kiosk mode with webcam capture, mobile GPS-verified check-in, and a full admin dashboard with live records, HRIS integration, and payroll connectivity. No cards, no PINs — just look and you're in.",
         image: "IMAGES/works/facetraq/facetraq_1.png",
@@ -374,7 +414,27 @@ const projectsData = [
         image: "IMAGES/works/SaaS/0.png",
         images: ["IMAGES/works/SaaS/0.png", "IMAGES/works/SaaS/1.png", "IMAGES/works/SaaS/2.png", "IMAGES/works/SaaS/3.png", "IMAGES/works/SaaS/4.png", "IMAGES/works/SaaS/5.png"],
         bg: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1600",
-        link: "https://brgydesk.vercel.app/"
+        link: "https://brgydesk.com/"
+    },
+    {
+        title: "COCOSTUDIO Website",
+        about: "Creative portfolio website for COCOSTUDIO. A visually-driven digital experience showcasing creative work with modern design and smooth interactions.",
+        image: "IMAGES/works/cocostudio/cocostudio_1.png",
+        images: [
+            "IMAGES/works/cocostudio/cocostudio_1.png",
+            "IMAGES/works/cocostudio/cocostudio_2.png",
+            "IMAGES/works/cocostudio/cocostudio_3.png"
+        ],
+        bg: "IMAGES/works/cocostudio/cocostudio_1.png",
+        link: "https://www.cocostudio.ph/"
+    },
+    {
+        title: "PTSI Website",
+        about: "Modern corporate digital presence for PTSI. Focuses on high-performance architecture, responsive design, and professional brand storytelling.",
+        image: "IMAGES/works/ptsi/1.png",
+        images: ["IMAGES/works/ptsi/1.png", "IMAGES/works/ptsi/2.png", "IMAGES/works/ptsi/3.png", "IMAGES/works/ptsi/4.png", "IMAGES/works/ptsi/5.png"],
+        bg: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
+        link: "https://www.philtbsociety.org/"
     },
     {
         title: "Time Logger System",
@@ -391,26 +451,6 @@ const projectsData = [
         images: ["IMAGES/works/hrtd/hrtd_1.png", "IMAGES/works/hrtd/hrtd_2.png", "IMAGES/works/hrtd/hrtd_3.png"],
         bg: "IMAGES/works/hrtd/hrtd_1.png",
         link: "https://hrtd-communitymap.vercel.app/"
-    },
-    {
-        title: "PTSI Website",
-        about: "Modern corporate digital presence for PTSI. Focuses on high-performance architecture, responsive design, and professional brand storytelling.",
-        image: "IMAGES/works/ptsi/1.png",
-        images: ["IMAGES/works/ptsi/1.png", "IMAGES/works/ptsi/2.png", "IMAGES/works/ptsi/3.png", "IMAGES/works/ptsi/4.png", "IMAGES/works/ptsi/5.png"],
-        bg: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-        link: "https://www.philtbsociety.org/"
-    },
-    {
-        title: "COCOSTUDIO Website",
-        about: "Creative portfolio website for COCOSTUDIO. A visually-driven digital experience showcasing creative work with modern design and smooth interactions.",
-        image: "IMAGES/works/cocostudio/cocostudio_1.png",
-        images: [
-            "IMAGES/works/cocostudio/cocostudio_1.png",
-            "IMAGES/works/cocostudio/cocostudio_2.png",
-            "IMAGES/works/cocostudio/cocostudio_3.png"
-        ],
-        bg: "IMAGES/works/cocostudio/cocostudio_1.png",
-        link: "https://www.cocostudio.ph/"
     },
     {
         title: "Company Intranet",
@@ -1405,7 +1445,7 @@ function _applySvcCarousel() {
     const sectionMessages = {
         resume: [
             'Scanning portfolio data...',
-            '12 years of experience detected.',
+            '13 years of experience detected.',
             'Loading operation logs...',
             'System capabilities: ONLINE.',
             'Analyzing career trajectory...',

@@ -1,6 +1,12 @@
 {
+  "scripts": {
+    "dev": "node server.js",
+    "resume:docx": "node scripts/generate-resume-docx.js"
+  },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "dotenv": "^17.4.2",
+    "html-to-docx": "^1.8.0",
     "nodemailer": "^9.0.3"
   }
 }
